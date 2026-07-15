@@ -1,4 +1,8 @@
+@layer theme, base, swiper, components, utilities;
+
 @import "tailwindcss";
+@import "swiper/css" layer(swiper);
+@import "swiper/css/effect-fade" layer(swiper);
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -60,7 +64,7 @@
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.22 0.02 325);
     /* Ink primary, cream text — matches CTA buttons */
-    --primary: oklch(0.22 0.02 325);
+    --primary: oklch(21.844% 0.02108 322.565);
     --primary-foreground: oklch(0.975 0.008 60);
     /* Blush (#EDE3E8) secondary surface */
     --secondary: oklch(0.93 0.015 340);

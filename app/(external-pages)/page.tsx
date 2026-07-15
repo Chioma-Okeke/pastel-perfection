@@ -1,6 +1,10 @@
+import HeroSection from "@/components/home/hero-section";
+
 const Home = () => {
     return (
-        <h1>Pastel Perfection</h1>
+        <>
+            <HeroSection />
+        </>
     )
 }
 
