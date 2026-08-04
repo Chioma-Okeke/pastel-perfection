@@ -8,6 +8,7 @@ export interface IProduct {
     originalPrice?: number; // optional, since not all items have it
     description: string;
     category: IProductCategory[];
+    productType: string;
     tags: string[];
     images: {
         asset: {

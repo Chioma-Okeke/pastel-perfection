@@ -5,8 +5,9 @@ export const BULK_ORDER_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${BULK_ORD
 
 export const HEADER_URLS = [
     { label: "Home", link: "/" },
-    { label: "About", link: "/about-us" },
     { label: "All Products", link: "/product-catalog" },
+    // { label: "Our Line", link: "/our-line" },
+    { label: "About", link: "/about-us" },
     { label: "Contact", link: "/contact-us" },
 ];
 

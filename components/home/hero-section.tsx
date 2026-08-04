@@ -8,15 +8,21 @@ import { heroImageData } from '@/lib/data';
 import { Button } from '../ui/button';
 import { motion } from 'framer-motion';
 import { useWindowWidth } from '@/hook/use-width';
+import { useRouter } from 'next/navigation';
 
 function HeroSection() {
     const swiperRef = useRef<SwiperClass | null>(null);
     const width = useWindowWidth();
     const [currentIndex, setCurrentIndex] = useState<number | undefined>(0);
+    const navigation = useRouter()
 
     const handleSlideChange = (swiper: SwiperClass) => {
         setCurrentIndex(swiper.realIndex);
     };
+
+    const sendToCatalog = () => {
+        navigation.push('/product-catalog')
+    }
 
     return (
         <section className="relative h-fit pb-24 lg:pb-12">
@@ -80,8 +86,12 @@ function HeroSection() {
                     </div>
                     {/* <CustomButton /> */}
                     <div className="flex gap-10 max-md:flex-col">
-                        <Button className="h-auto py-4 px-7 rounded-full border-primary">View Catalog</Button>
-                        <Button className="h-auto py-4 px-7 rounded-full border-primary text-foreground" variant="outline">Chat on WhatsApp</Button>
+                        <Button className="h-auto py-4 px-7 rounded-full border-primary" onClick={sendToCatalog}>
+                            View Catalog
+                        </Button>
+                        <Button className="h-auto py-4 px-7 rounded-full border-primary text-foreground" variant="outline">
+                            Chat on WhatsApp
+                        </Button>
                     </div>
                 </div>
             </motion.div>

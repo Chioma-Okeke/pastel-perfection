@@ -15,8 +15,8 @@ const NavBar = () => {
     const pathname = usePathname()
 
     return (
-        <header className={cn('z-50 w-full py-4 px-2 lg:px-[100px] lg:py-6 lg:bg-black/33 text-white', {
-            'absolute top-0 left-0': pathname !== "/product-catalog"
+        <header className={cn('z-50 w-full py-4 px-2 lg:px-25 lg:py-6 lg:bg-black/33 text-white', {
+            'absolute top-0 left-0': (pathname !== "/product-catalog" && pathname !== "/contact-us" && pathname !== "/about-us")
         })}>
             <div className="flex items-center justify-between max-md:px-4">
                 {pathname === '/product-catalog' && width && width < 1024 && <CartModal />}
@@ -56,7 +56,7 @@ const NavBar = () => {
                     </Link>
                 )
                 }
-                <div className="text-white">
+                <div className="text-white lg:hidden">
                     <MobileSideBarNav />
                 </div>
             </div>

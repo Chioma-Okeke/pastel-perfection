@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Montserrat } from "next/font/google";
+import { Playfair_Display, Montserrat, Orbitron, Open_Sans } from "next/font/google";
 import "./globals.css";
 import BackToTop from "@/components/shared/back-to-top";
 
@@ -10,10 +10,10 @@ const playfairDisplay = Playfair_Display({
   style: ['normal', 'italic'],
 });
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const openSans = Open_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-open-sans',
 });
 
 export const metadata: Metadata = {
@@ -85,7 +85,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfairDisplay.variable} ${montserrat.variable} h-full antialiased`}
+      className={`${playfairDisplay.variable} ${openSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {children}

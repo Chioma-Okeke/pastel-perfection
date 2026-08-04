@@ -1,4 +1,6 @@
+import AboutTeaser from "@/components/home/about-teaser";
 import BestSellers from "@/components/home/best-sellers";
+import BrandLogos from "@/components/home/brand-logos";
 import Faq from "@/components/home/faq";
 import HeroSection from "@/components/home/hero-section";
 import LaunchingSoon from "@/components/home/launching-soon";
@@ -9,6 +11,8 @@ const Home = () => {
     return (
         <>
             <HeroSection />
+            <BrandLogos />
+            <AboutTeaser />
             <BestSellers />
             <LaunchingSoon />
             <Testimonials />

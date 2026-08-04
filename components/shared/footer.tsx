@@ -6,7 +6,7 @@ import { FacebookIcon, InstagramIcon, TikTokIcon } from "@/icons"
 
 const EXPLORE_LINKS = [
     { label: "Brands & Products", link: "/product-catalog" },
-    { label: "Our Line", link: "/#our-line" },
+    { label: "Our Line", link: "/our-line" },
     { label: "Contact Us", link: "/contact-us" },
     { label: "About Us", link: "/about-us" },
 ]

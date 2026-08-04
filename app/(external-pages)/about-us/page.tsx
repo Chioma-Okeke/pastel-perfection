@@ -1,5 +1,15 @@
-export default function ProductCatalogPage() {
+import IntroSection from "@/components/about/intro-section";
+import MissionSection from "@/components/about/mission-section";
+import StatsSection from "@/components/about/stats-section";
+import Faq from "@/components/home/faq";
+
+export default function AboutUsPage() {
     return (
-        <h1>About Us</h1>
+        <>
+            <IntroSection />
+            <StatsSection />
+            <MissionSection />
+            <Faq />
+        </>
     )
 }
