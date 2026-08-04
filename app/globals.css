@@ -3,6 +3,7 @@
 @import "tailwindcss";
 @import "swiper/css" layer(swiper);
 @import "swiper/css/effect-fade" layer(swiper);
+@import "swiper/css/effect-cube" layer(swiper);
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -142,5 +143,16 @@
     }
     html {
         @apply font-montserrat;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-heading;
+        letter-spacing: -0.045em;
+        line-height: 0.95;
+        font-weight: 600;
     }
 }

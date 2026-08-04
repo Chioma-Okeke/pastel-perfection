@@ -22,7 +22,7 @@ export default function BackToTop() {
             {
                 showScrollTopButton && (
                     <Button
-                        className="fixed bottom-4 right-5 rounded-full bg-primary p-2 shadow-lg transition-all ease-in-out hover:scale-110 duration-300 z-50"
+                        className="fixed bottom-24 right-5 rounded-full bg-primary p-2 shadow-lg transition-all ease-in-out hover:scale-110 duration-300 z-50"
                         onClick={() => window.scrollTo({
                             top: 0,
                             behavior: "smooth"

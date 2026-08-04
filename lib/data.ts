@@ -1,3 +1,159 @@
+import { IProduct, IProductCategory } from "@/types";
+
+export const productCategories: IProductCategory[] = [
+    { _id: "cat-medicube", title: "Medicube", slug: { current: "medicube" } },
+    { _id: "cat-dr-rashel", title: "Dr. Rashel", slug: { current: "dr-rashel" } },
+];
+
+const [medicube, drRashel] = productCategories;
+
+export const productsData: IProduct[] = [
+    {
+        _id: "prod-zero-pore-pad",
+        name: "Zero Pore Pad 2.0",
+        slug: { current: "zero-pore-pad-2-0" },
+        price: 0,
+        description: "30 pads",
+        category: [medicube],
+        tags: [],
+        images: [],
+        inStock: true,
+        featured: false,
+    },
+    {
+        _id: "prod-collagen-niacinamide-cream",
+        name: "Collagen Niacinamide One-Day Cream",
+        slug: { current: "collagen-niacinamide-one-day-cream" },
+        price: 0,
+        description: "110ml",
+        category: [medicube],
+        tags: [],
+        images: [],
+        inStock: true,
+        featured: false,
+    },
+    {
+        _id: "prod-deep-vegan-collagen-cream",
+        name: "Deep Vegan Collagen Cream",
+        slug: { current: "deep-vegan-collagen-cream" },
+        price: 0,
+        description: "80ml",
+        category: [medicube],
+        tags: [],
+        images: [],
+        inStock: true,
+        featured: false,
+    },
+    {
+        _id: "prod-red-serum",
+        name: "Red Serum (Redness Care)",
+        slug: { current: "red-serum-redness-care" },
+        price: 0,
+        description: "30ml",
+        category: [medicube],
+        tags: [],
+        images: [],
+        inStock: true,
+        featured: false,
+    },
+    {
+        _id: "prod-pdrn-pink-cica-cream",
+        name: "PDRN Pink Cica Cream",
+        slug: { current: "pdrn-pink-cica-cream" },
+        price: 0,
+        description: "55ml",
+        category: [medicube],
+        tags: [],
+        images: [],
+        inStock: true,
+        featured: false,
+    },
+    {
+        _id: "prod-booster-pore-serum",
+        name: "Booster Pore Serum",
+        slug: { current: "booster-pore-serum" },
+        price: 0,
+        description: "30ml",
+        category: [medicube],
+        tags: [],
+        images: [],
+        inStock: true,
+        featured: false,
+    },
+    {
+        _id: "prod-vitamin-c-brightening-serum",
+        name: "Vitamin C Brightening Serum",
+        slug: { current: "vitamin-c-brightening-serum" },
+        price: 0,
+        description: "50ml",
+        category: [drRashel],
+        tags: [],
+        images: [],
+        inStock: true,
+        featured: false,
+    },
+    {
+        _id: "prod-24k-gold-radiance-cream",
+        name: "24K Gold Radiance Cream",
+        slug: { current: "24k-gold-radiance-cream" },
+        price: 0,
+        description: "100ml",
+        category: [drRashel],
+        tags: [],
+        images: [],
+        inStock: true,
+        featured: false,
+    },
+    {
+        _id: "prod-snail-repair-gel-cream",
+        name: "Snail Repair Gel Cream",
+        slug: { current: "snail-repair-gel-cream" },
+        price: 0,
+        description: "80ml",
+        category: [drRashel],
+        tags: [],
+        images: [],
+        inStock: true,
+        featured: false,
+    },
+    {
+        _id: "prod-retinol-anti-aging-serum",
+        name: "Retinol Anti-Aging Serum",
+        slug: { current: "retinol-anti-aging-serum" },
+        price: 0,
+        description: "30ml",
+        category: [drRashel],
+        tags: [],
+        images: [],
+        inStock: true,
+        featured: false,
+    },
+    {
+        _id: "prod-hyaluronic-acid-serum",
+        name: "Hyaluronic Acid Serum",
+        slug: { current: "hyaluronic-acid-serum" },
+        price: 0,
+        description: "50ml",
+        category: [drRashel],
+        tags: [],
+        images: [],
+        inStock: true,
+        featured: false,
+    },
+    {
+        _id: "prod-rose-water-body-lotion",
+        name: "Rose Water Body Lotion",
+        slug: { current: "rose-water-body-lotion" },
+        price: 0,
+        description: "250ml",
+        category: [drRashel],
+        tags: [],
+        images: [],
+        inStock: true,
+        featured: false,
+    },
+];
+
 export const heroImageData = [
     {
         imgSrc: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1763057466/Generated_Image_November_13_2025_-_11_09AM_tvl9jc.png",
@@ -10,5 +166,65 @@ export const heroImageData = [
     {
         imgSrc: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1763093178/ladies-hero_ig7yxp.png",
         alt: "Female Models",
+    },
+];
+
+export const testimonialsData = [
+    {
+        quote: "Bulk pricing that actually makes sense for a small shop, and WhatsApp ordering is so easy.",
+        name: "Bella Skin Essentials",
+        location: "Abuja",
+    },
+    {
+        quote: "Every order has been 100% authentic. My customers trust the brands I stock because I trust Pastel Perfection.",
+        name: "Glow House Cosmetics",
+        location: "Lagos",
+    },
+    {
+        quote: "Fast restocks and a rep who actually replies. That reliability is why I keep coming back every month.",
+        name: "Radiance Beauty Hub",
+        location: "Port Harcourt",
+    },
+];
+
+export const faqData = [
+    {
+        question: "Do you sell to individual customers or only retailers?",
+        answer: "We're a wholesale distributor built for retailers and resellers, so our pricing and stock are structured around bulk orders rather than single-item purchases.",
+    },
+    {
+        question: "Is there a minimum order quantity?",
+        answer: "Yes, MOQs vary by product and are listed in our catalog. Message us on WhatsApp and we'll confirm the minimum for whatever you're looking to stock.",
+    },
+    {
+        question: "Are your products 100% authentic?",
+        answer: "Every item we distribute is sourced directly from authorized suppliers and comes with proof of authenticity — no grey-market stock, ever.",
+    },
+    {
+        question: "Which states do you deliver to?",
+        answer: "We currently deliver nationwide across Nigeria, with same-week dispatch from our Lagos and Abuja hubs depending on your location.",
+    },
+    {
+        question: "How do I get wholesale pricing?",
+        answer: "Message us on WhatsApp or fill out the contact form with your business details, and we'll send over our current wholesale price list.",
+    },
+    {
+        question: "When is the house line launching?",
+        answer: "Our body lotion and shower gel line is in development with no firm date yet. Join the waitlist on the Our Line page to be notified first.",
+    },
+];
+
+export const upcomingLaunchesData = [
+    {
+        name: "Gluthatione & Vitamin C Lotion",
+        imgSrc: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Vitamin_C_lotion_pd7w2o.jpg",
+    },
+    {
+        name: "Alpha Arbutin & Niacinamide Lotion",
+        imgSrc: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Niacinamide_lotion_ub4wfb.jpg",
+    },
+    {
+        name: "Gluthatione & Vitamin C Shower Gel",
+        imgSrc: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Vitamin_C_shower_gel_i6tdph.jpg",
     },
 ];

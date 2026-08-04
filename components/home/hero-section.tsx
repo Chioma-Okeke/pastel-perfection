@@ -68,10 +68,10 @@ function HeroSection() {
                     stiffness: 120,
                     damping: 12
                 }}
-                className="relative z-20 w-full lg:pb-12 md:pl-[72px] pt-[117px] md:pt-[176px] max-w-[756px] text-white">
-                <div className="mt-11 mx-5 lg:ml-[87px] space-y-11 rounded-xl max-w-[343px] md:max-w-[670px] md:w-full">
+                className="relative z-20 w-full lg:pb-12 md:pl-18 pt-29.25 md:pt-44 max-w-189 text-white">
+                <div className="mt-11 mx-5 lg:ml-21.75 space-y-11 rounded-xl max-w-85.75 md:max-w-167.5 md:w-full">
                     <div>
-                        <h1 className="font-orbitron font-bold text-[28px] md:text-[56px] lg:leading-[78px] mt-4 mb-2">
+                        <h1 className="font-bold text-white text-[28px] md:text-[56px] lg:leading-19.5 mt-4 mb-2">
                             Stock the brands your customers already love.
                         </h1>
                         <p className="text-sm md:text-lg">

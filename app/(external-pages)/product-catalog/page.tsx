@@ -1,5 +1,7 @@
+import ProductCatalogSection from "@/components/product/product-catalog-section"
+
 export default function ProductCatalogPage() {
     return (
-        <h1>Product Catalog</h1>
+        <ProductCatalogSection />
     )
 }

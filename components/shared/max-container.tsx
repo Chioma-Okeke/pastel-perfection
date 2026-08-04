@@ -3,7 +3,7 @@ import React from 'react'
 
 function MaxContainer({children, className}: {children: React.ReactNode, className?: string}) {
   return (
-    <div className={cn('w-full max-w-310 mx-auto', className)}>
+    <div className={cn('w-full max-w-360 mx-auto', className)}>
         {children}
     </div>
   )
