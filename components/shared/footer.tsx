@@ -2,13 +2,14 @@ import Link from "next/link"
 import PaddingContainer from "./padding-container"
 import MaxContainer from "./max-container"
 import { BULK_ORDER_LINK, CONTACT_DATA } from "@/constants"
-import { FacebookIcon, InstagramIcon, TikTokIcon } from "@/icons"
+import { FacebookIcon, InstagramIcon, TikTokIcon, WhatsAppIcon } from "@/icons"
 
 const EXPLORE_LINKS = [
     { label: "Brands & Products", link: "/product-catalog" },
     { label: "Our Line", link: "/our-line" },
     { label: "Contact Us", link: "/contact-us" },
     { label: "About Us", link: "/about-us" },
+    { label: "FAQ", link: "/faq" },
 ]
 
 const Footer = () => {
@@ -41,23 +42,8 @@ const Footer = () => {
                             </div>
 
                             <div>
-                                <p className="text-accent text-xs font-semibold tracking-[0.2em] uppercase">Contact</p>
+                                <p className="text-accent text-xs font-semibold tracking-[0.2em] uppercase">Connect with Us</p>
                                 <ul className="mt-4 space-y-3">
-                                    <li>
-                                        <a
-                                            href={BULK_ORDER_LINK}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-primary-foreground/90 hover:text-primary-foreground transition-colors"
-                                        >
-                                            WhatsApp: {CONTACT_DATA.PHONE_NUMBER}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <Link href="/contact-us" className="text-primary-foreground/90 hover:text-primary-foreground transition-colors">
-                                            Contact Page
-                                        </Link>
-                                    </li>
                                     <li className="text-primary-foreground/60 flex items-center gap-4">
                                         <a href={CONTACT_DATA.INSTAGRAM} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
                                             <InstagramIcon />
@@ -68,14 +54,17 @@ const Footer = () => {
                                         <a href={CONTACT_DATA.FACEBOOK} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
                                             <FacebookIcon />
                                         </a>
+                                        <a href={BULK_ORDER_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
+                                            <WhatsAppIcon />
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
                         <div className="mt-12 border-t border-primary-foreground/10 pt-6 lg:mt-16">
-                            <p className="text-xs text-primary-foreground/50">
-                                © {year} Pastel Perfection Beauty. All third-party brand names and trademarks are property of their respective owners.
+                            <p className="text-sm text-primary-foreground/50">
+                                © {year} Pastel Perfection Beauty
                             </p>
                         </div>
                     </MaxContainer>

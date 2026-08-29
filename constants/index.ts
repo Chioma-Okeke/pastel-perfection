@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "2348035080782";
+const WHATSAPP_NUMBER = "234 8035080782";
 export const BULK_ORDER_WHATSAPP_MESSAGE =
     "Hello Pastel Perfection, %0A%0AI'm interested in bulk orders.";
 export const BULK_ORDER_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${BULK_ORDER_WHATSAPP_MESSAGE}`;

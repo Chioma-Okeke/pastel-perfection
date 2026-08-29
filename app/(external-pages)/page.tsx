@@ -16,7 +16,6 @@ const Home = () => {
             <BestSellers />
             <LaunchingSoon />
             <Testimonials />
-            <Faq />
             <ChatNowBanner/>
         </>
     )

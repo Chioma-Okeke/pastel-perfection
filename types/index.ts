@@ -9,6 +9,8 @@ export interface IProduct {
     description: string;
     category: IProductCategory[];
     productType: string;
+    ingredients: string[];
+    skinConcern: string[];
     tags: string[];
     images: {
         asset: {

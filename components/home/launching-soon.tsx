@@ -24,16 +24,11 @@ const LaunchingSoon = () => {
                                 <span>Launching Soon</span>
                             </p>
                             <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.1] max-w-xl">
-                                Introducing Pastel Perfection — body lotion & shower gel
+                                Introducing Pastel Perfection body lotion & shower gel
                             </h1>
                             <p className="text-primary-foreground/70 text-base lg:text-lg max-w-md max-lg:mx-auto">
-                                Silky, featherlight, gentle — our own house line is coming. Be first to stock it or be first to try it.
+                                Silky, featherlight, gentle. Our own house line is coming. Be first to stock it or be first to try it.
                             </p>
-                            <div className="pt-2">
-                                <Button className="h-auto py-4 px-7 rounded-full bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                                    Join the Waitlist
-                                </Button>
-                            </div>
                         </div>
                         <AnimatePresence mode="wait">
                             <motion.div

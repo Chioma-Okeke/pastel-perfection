@@ -9,7 +9,7 @@ const Faq = () => {
         <section className="py-16 lg:py-24">
             <PaddingContainer>
                 <MaxContainer className="space-y-12 lg:space-y-16">
-                    <h2 className="font-heading font-bold text-4xl lg:text-5xl">Frequently Asked Questions</h2>
+                    <h2 className="font-heading font-bold text-4xl lg:text-5xl pt-10">Frequently Asked Questions</h2>
 
                     <Accordion defaultValue={[5]} className="border-t border-border">
                         {faqData.map((faq, index) => (
