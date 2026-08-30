@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Montserrat, Orbitron, Open_Sans } from "next/font/google";
 import "./globals.css";
 import BackToTop from "@/components/shared/back-to-top";
+import { SanityLive } from "@/sanity/lib/live";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
@@ -90,6 +91,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         {/* <BackToTop /> */}
+        <SanityLive />
       </body>
     </html>
   );

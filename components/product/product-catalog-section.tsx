@@ -7,9 +7,9 @@ import { AnimatePresence, motion } from "framer-motion"
 import PaddingContainer from "../shared/padding-container"
 import MaxContainer from "../shared/max-container"
 import { Button } from "../ui/button"
-import ProductCard from "./product-card"
 import { cn } from "@/lib/utils"
-import { productCategories, productsData } from "@/lib/data"
+import ProductDetails from "./product-details"
+import { IProduct, IProductCategory } from "@/types"
 
 type FilterOption = { label: string; count: number }
 
@@ -89,7 +89,7 @@ const SORT_OPTIONS = [
     { value: "name-desc", label: "Name (Z–A)" },
 ] as const
 
-type SortValue = (typeof SORT_OPTIONS)[number]["value"]
+type SortValue = (typeof SORT_OPTIONS)[number]["value"] | ""
 
 const countBy = (values: string[]): FilterOption[] => {
     const counts = new Map<string, number>()
@@ -99,38 +99,43 @@ const countBy = (values: string[]): FilterOption[] => {
         .sort((a, b) => a.label.localeCompare(b.label))
 }
 
-const ProductCatalogSection = () => {
+type ProductCatalogSectionProps = {
+    products: IProduct[]
+    categories: IProductCategory[]
+}
+
+const ProductCatalogSection = ({ products, categories }: ProductCatalogSectionProps) => {
     const [activeBrand, setActiveBrand] = useState<string>("All")
     const [activeType, setActiveType] = useState<string>("All")
     const [activeIngredient, setActiveIngredient] = useState<string>("All")
     const [activeSkinConcern, setActiveSkinConcern] = useState<string>("All")
-    const [sortBy, setSortBy] = useState<SortValue>("name-asc")
+    const [sortBy, setSortBy] = useState<SortValue>("")
     const [filtersOpen, setFiltersOpen] = useState(false)
 
-    const typeOptions = useMemo(() => countBy(productsData.map((product) => product.productType)), [])
+    const typeOptions = useMemo(() => countBy(products.map((product) => product.productType)), [products])
 
     const brandOptions = useMemo<FilterOption[]>(
         () =>
-            productCategories.map((category) => ({
+            categories.map((category) => ({
                 label: category.title,
-                count: productsData.filter((product) => product.category.some((c) => c.title === category.title)).length,
+                count: products.filter((product) => product.category.some((c) => c.title === category.title)).length,
             })),
-        []
+        [products, categories]
     )
 
-    const ingredientOptions = useMemo(() => countBy(productsData.flatMap((product) => product.ingredients)), [])
+    const ingredientOptions = useMemo(() => countBy(products.flatMap((product) => product.ingredients)), [products])
 
-    const skinConcernOptions = useMemo(() => countBy(productsData.flatMap((product) => product.skinConcern)), [])
+    const skinConcernOptions = useMemo(() => countBy(products.flatMap((product) => product.skinConcern)), [products])
 
     const filteredProducts = useMemo(() => {
-        return productsData.filter((product) => {
+        return products.filter((product) => {
             const matchesBrand = activeBrand === "All" || product.category.some((category) => category.title === activeBrand)
             const matchesType = activeType === "All" || product.productType === activeType
             const matchesIngredient = activeIngredient === "All" || product.ingredients.includes(activeIngredient)
             const matchesSkinConcern = activeSkinConcern === "All" || product.skinConcern.includes(activeSkinConcern)
             return matchesBrand && matchesType && matchesIngredient && matchesSkinConcern
         })
-    }, [activeBrand, activeType, activeIngredient, activeSkinConcern])
+    }, [products, activeBrand, activeType, activeIngredient, activeSkinConcern])
 
     const sortedProducts = useMemo(() => {
         return [...filteredProducts].sort((a, b) => (sortBy === "name-desc" ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)))
@@ -187,7 +192,7 @@ const ProductCatalogSection = () => {
                 <MaxContainer className="space-y-8">
                     <h1 className="font-heading font-bold text-4xl">Products</h1>
 
-                    <div className="flex items-center justify-between border-b border-border pb-6 text-sm">
+                    <div className="flex max-md:flex-col md:items-center max-md:gap-5 justify-between border-b border-border pb-3 text-sm">
                         <nav className="text-muted-foreground">
                             <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
                             <span className="mx-2">/</span>
@@ -197,7 +202,7 @@ const ProductCatalogSection = () => {
                         <div className="flex items-center gap-3">
                             <button
                                 onClick={() => setFiltersOpen(true)}
-                                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-xs font-semibold tracking-widest uppercase text-foreground lg:hidden"
+                                className="w-full inline-flex items-center justify-center gap-2 border border-border bg-background px-4 py-2 text-xs font-semibold tracking-widest uppercase text-foreground lg:hidden"
                             >
                                 <SlidersHorizontal className="size-4" />
                                 Filters
@@ -208,19 +213,19 @@ const ProductCatalogSection = () => {
                                 )}
                             </button>
 
-                            <div className="relative">
+                            <div className="relative w-full text-center">
                                 <select
                                     value={sortBy}
                                     onChange={(e) => setSortBy(e.target.value as SortValue)}
-                                    className="appearance-none rounded-full border border-border bg-background py-2 pl-4 pr-9 text-xs font-semibold tracking-widest uppercase text-foreground focus:outline-none focus:ring-2 focus:ring-ring/50"
+                                    className="w-full appearance-none border border-border bg-background py-2 lg:px-9 text-center text-xs font-semibold tracking-widest uppercase text-foreground focus:outline-none focus:ring-2 focus:ring-ring/50"
                                 >
+                                    <option value="" disabled hidden>Sort By</option>
                                     {SORT_OPTIONS.map((option) => (
                                         <option key={option.value} value={option.value}>
-                                            Sort By: {option.label}
+                                            {option.label}
                                         </option>
                                     ))}
                                 </select>
-                                <ChevronDown className="pointer-events-none absolute right-3 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
                             </div>
                         </div>
                     </div>
@@ -233,7 +238,7 @@ const ProductCatalogSection = () => {
                         {sortedProducts.length > 0 ? (
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))] gap-5">
                                 {sortedProducts.map((product) => (
-                                    <ProductCard key={product._id} product={product} />
+                                    <ProductDetails key={product._id} product={product} />
                                 ))}
                             </div>
                         ) : (

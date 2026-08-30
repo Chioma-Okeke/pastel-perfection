@@ -2,11 +2,13 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import MaxContainer from "../shared/max-container"
 import PaddingContainer from "../shared/padding-container"
-import ProductCard from "../product/product-card"
-import { productsData } from "@/lib/data"
+import ProductDetails from "../product/product-details"
+import { sanityFetch } from "@/sanity/lib/live"
+import { BEST_SELLING_PRODUCTS_QUERY } from "@/sanity/lib/queries"
+import { IProduct } from "@/types"
 
-const BestSellers = () => {
-    const bestSellingProducts = productsData.filter((product) => product.bestSelling)
+const BestSellers = async () => {
+    const { data: bestSellingProducts } = await sanityFetch({ query: BEST_SELLING_PRODUCTS_QUERY })
 
     return (
         <section className="py-10 lg:py-20">
@@ -26,8 +28,8 @@ const BestSellers = () => {
                     </div>
 
                     <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-                        {bestSellingProducts.map((product) => (
-                            <ProductCard key={product._id} product={product} badge="Best Seller" />
+                        {(bestSellingProducts as IProduct[]).map((product) => (
+                            <ProductDetails key={product._id} product={product} badge="Best Seller" />
                         ))}
                     </div>
                 </MaxContainer>
