@@ -74,13 +74,13 @@ function HeroSection() {
                     stiffness: 120,
                     damping: 12
                 }}
-                className="relative z-20 w-full lg:pb-12 md:pl-18 pt-29.25 md:pt-44 max-w-189 text-white">
-                <div className="mt-11 mx-5 lg:ml-21.75 space-y-11 rounded-xl max-w-85.75 md:max-w-167.5 md:w-full">
+                className="relative z-20 w-full lg:pb-12 md:pl-18 pt-29.25 md:pt-44 max-w-189 max-sm:mx-auto text-white">
+                <div className="mt-11 md:mx-5 lg:ml-21.75 space-y-11 rounded-xl max-w-85.75 mx-auto md:max-w-167.5 md:w-full">
                     <div>
-                        <h1 className="font-bold text-white text-[28px] md:text-[56px] lg:leading-19.5 mt-4 mb-2">
+                        <h1 className="font-bold text-white text-[45px] md:text-[56px] lg:leading-19.5 mt-4 mb-2">
                             Stock the brands your customers already love.
                         </h1>
-                        <p className="text-sm md:text-lg">
+                        <p className="text-sm md:text-lg hidden md:block">
                             Authentic bulk supply of Medicube, Dr. Rashel and more - trusted by retailers and resellers across Nigeria.
                         </p>
                     </div>

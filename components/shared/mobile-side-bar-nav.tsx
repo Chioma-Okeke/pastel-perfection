@@ -60,7 +60,7 @@ function MobileSideBarNav() {
                 onClick={() => setOpen(true)}
                 className="rounded-md border-none ring-0 outline-none focus:outline-none focus:ring-0 focus:border-none"
             >
-                <MenuIcon className="size-6" color={pathname === '/product-catalog' ? 'black' : 'currentColor'} />
+                <MenuIcon className="size-6" color='black' />
             </button>
 
             <AnimatePresence>
@@ -79,7 +79,7 @@ function MobileSideBarNav() {
                         <motion.aside
                             key="panel"
                             ref={panelRef}
-                            className="fixed inset-y-0 left-0 z-50 w-[90%] max-w-xs bg-primary shadow-2xl border-r border-sidebar-accent/20 text-primary-foreground p-6"
+                            className="flex flex-col fixed gap-8 inset-y-0 h-full left-0 z-50 w-[90%] max-w-xs bg-primary shadow-2xl border-r border-sidebar-accent/20 text-primary-foreground p-6"
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
@@ -88,7 +88,7 @@ function MobileSideBarNav() {
                             role="dialog"
                             aria-modal="true"
                         >
-                            <div className="flex items-center justify-between mb-6">
+                            <div className="flex items-center justify-between">
                                 <div className="text-lg font-semibold">Menu</div>
                                 <button
                                     aria-label="Close menu"
@@ -99,82 +99,84 @@ function MobileSideBarNav() {
                                 </button>
                             </div>
 
-                            <nav>
-                                <ul className="flex flex-col gap-4  font-medium">
-                                    {HEADER_URLS.map((item, idx) => (
-                                        <motion.li
-                                            key={item.label}
-                                            initial="hidden"
-                                            animate="visible"
-                                            exit="hidden"
-                                            variants={listItem}
-                                            transition={{
-                                                delay: 0.15 + (0.12 * idx),
-                                                type: 'spring',
-                                                stiffness: 400,
-                                                damping: 25,
-                                                duration: 0.6
-                                            }}
-                                        >
-                                            <Link
-                                                href={item.link}
-                                                onClick={() => setOpen(false)}
-                                                className={cn(
-                                                    'block text-xl font-medium pb-1.5 border-b border-b-transparent hover:border-b-accent transition-colors duration-200',
-                                                    { 'border-b-accent text-accent': pathname === item.link }
-                                                )}
+                            <div className='flex flex-col justify-between flex-1'>
+                                <nav>
+                                    <ul className="flex flex-col gap-4  font-medium">
+                                        {HEADER_URLS.map((item, idx) => (
+                                            <motion.li
+                                                key={item.label}
+                                                initial="hidden"
+                                                animate="visible"
+                                                exit="hidden"
+                                                variants={listItem}
+                                                transition={{
+                                                    delay: 0.15 + (0.12 * idx),
+                                                    type: 'spring',
+                                                    stiffness: 400,
+                                                    damping: 25,
+                                                    duration: 0.6
+                                                }}
                                             >
-                                                {item.label}
-                                            </Link>
-                                        </motion.li>
-                                    ))}
-                                </ul>
-                            </nav>
-
-                            <div className="mt-6 text-foreground">
-                                <hr className="border-primary-foreground/30" />
-                                <p className="mt-4 text-sm text-muted">Follow us for new launches and offers</p>
-                                <motion.div
-                                    className='mt-5'
-                                    initial={{ opacity: 0, y: 12 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.15 + (0.12 * HEADER_URLS.length) + 0.1, duration: 0.4 }}
-                                >
-                                    <ul className='flex items-center gap-3'>
-                                        <motion.li
-                                            initial={{ opacity: 0, scale: 0.8 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            transition={{
-                                                delay: 0.15 + (0.12 * HEADER_URLS.length) + 0.2,
-                                                type: 'spring',
-                                                stiffness: 500,
-                                                damping: 20
-                                            }}
-                                        >
-                                            <Link href={CONTACT_DATA.INSTAGRAM}>
-                                                <div className='rounded-full p-2 size-10 bg-[#E9E9EA] flex items-center justify-center transition ease-in-out duration-300 hover:bg-[#FADF80] cursor-pointer'>
-                                                    <InstagramIcon className="#1D1F2C size-8" />
-                                                </div>
-                                            </Link>
-                                        </motion.li>
-                                        <motion.li
-                                            initial={{ opacity: 0, scale: 0.8 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            transition={{
-                                                delay: 0.15 + (0.12 * HEADER_URLS.length) + 0.36,
-                                                type: 'spring',
-                                                stiffness: 500,
-                                                damping: 20
-                                            }}
-                                        >
-                                            <Link href={CONTACT_DATA.EMAIL}>
-                                                <div className='rounded-full p-2 size-10 bg-[#E9E9EA] flex items-center justify-center transition ease-in-out duration-300 hover:bg-[#FADF80] cursor-pointer'>
-                                                    <Mail02 className="#1D1F2C size-8" />
-                                                </div>
-                                            </Link>
-                                        </motion.li>
+                                                <Link
+                                                    href={item.link}
+                                                    onClick={() => setOpen(false)}
+                                                    className={cn(
+                                                        'block text-xl font-medium pb-1.5 border-b border-b-transparent hover:border-b-accent transition-colors duration-200',
+                                                        { 'border-b-accent text-accent': pathname === item.link }
+                                                    )}
+                                                >
+                                                    {item.label}
+                                                </Link>
+                                            </motion.li>
+                                        ))}
                                     </ul>
-                                </motion.div>
+                                </nav>
+
+                                <div className=" text-foreground">
+                                    <hr className="border-primary-foreground/30" />
+                                    <p className="mt-4 text-sm text-muted">Follow us for new launches and offers</p>
+                                    <motion.div
+                                        className='mt-5'
+                                        initial={{ opacity: 0, y: 12 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.15 + (0.12 * HEADER_URLS.length) + 0.1, duration: 0.4 }}
+                                    >
+                                        <ul className='flex items-center gap-3'>
+                                            <motion.li
+                                                initial={{ opacity: 0, scale: 0.8 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                transition={{
+                                                    delay: 0.15 + (0.12 * HEADER_URLS.length) + 0.2,
+                                                    type: 'spring',
+                                                    stiffness: 500,
+                                                    damping: 20
+                                                }}
+                                            >
+                                                <Link href={CONTACT_DATA.INSTAGRAM}>
+                                                    <div className='rounded-full p-2 size-10 bg-[#E9E9EA] flex items-center justify-center transition ease-in-out duration-300 hover:bg-[#FADF80] cursor-pointer'>
+                                                        <InstagramIcon />
+                                                    </div>
+                                                </Link>
+                                            </motion.li>
+                                            <motion.li
+                                                initial={{ opacity: 0, scale: 0.8 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                transition={{
+                                                    delay: 0.15 + (0.12 * HEADER_URLS.length) + 0.36,
+                                                    type: 'spring',
+                                                    stiffness: 500,
+                                                    damping: 20
+                                                }}
+                                            >
+                                                <Link href={CONTACT_DATA.EMAIL}>
+                                                    <div className='rounded-full p-2 size-10 bg-[#E9E9EA] flex items-center justify-center transition ease-in-out duration-300 hover:bg-[#FADF80] cursor-pointer'>
+                                                        <Mail02 className="#1D1F2C size-8" />
+                                                    </div>
+                                                </Link>
+                                            </motion.li>
+                                        </ul>
+                                    </motion.div>
+                                </div>
                             </div>
                         </motion.aside>
                     </>

@@ -18,9 +18,9 @@ const NavBar = () => {
         <header className={cn('z-50 w-full py-4 px-2 lg:px-25 lg:py-6', {
             '': (pathname !== "/product-catalog" && pathname !== "/contact-us" && pathname !== "/about-us")
         })}>
-            <div className="flex items-center justify-between max-md:px-4">
+            <div className="flex items-center justify-between gap-6 max-md:px-4">
                 {pathname === '/product-catalog' && width && width < 1024 && <CartModal />}
-                <div className="flex items-center lg:gap-32 max-lg:flex-1">
+                <div className="flex items-center lg:gap-32 max-lg:flex-1 w-full  justify-between">
                     <Link href="/">
                         <Image
                             src="https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png"
@@ -52,7 +52,7 @@ const NavBar = () => {
                     <CartModal />
                 ) : (
                     <Link href="/product-catalog">
-                        <Search01 className="hidden lg:block size-6 cursor-pointer" />
+                        <Search01 className="hidden lg:block size-5.5 cursor-pointer" />
                     </Link>
                 )
                 }
