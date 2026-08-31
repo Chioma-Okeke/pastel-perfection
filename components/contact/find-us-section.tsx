@@ -2,31 +2,7 @@ import { MapPin } from "lucide-react"
 import PaddingContainer from "../shared/padding-container"
 import MaxContainer from "../shared/max-container"
 import { Button } from "../ui/button"
-import { BULK_ORDER_LINK, CONTACT_DATA } from "@/constants"
-
-const GOOGLE_MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_DATA.ADDRESS[0])}`
-
-const CONTACT_ITEMS = [
-    {
-        label: "WhatsApp",
-        value: CONTACT_DATA.PHONE_NUMBER,
-        href: BULK_ORDER_LINK,
-    },
-    {
-        label: "Email",
-        value: CONTACT_DATA.EMAIL,
-        href: `mailto:${CONTACT_DATA.EMAIL}`,
-    },
-    {
-        label: "Warehouse",
-        value: CONTACT_DATA.WAREHOUSE_CITY,
-        note: CONTACT_DATA.WAREHOUSE_NOTE,
-    },
-    {
-        label: "Hours",
-        value: CONTACT_DATA.HOURS,
-    },
-]
+import { CONTACT_DATA, CONTACT_ITEMS, GOOGLE_MAPS_LINK } from "@/constants"
 
 const FindUsSection = () => {
     return (
@@ -35,9 +11,6 @@ const FindUsSection = () => {
                 <MaxContainer className="space-y-10 lg:space-y-14">
                     <div className="space-y-4 max-w-2xl">
                         <h1 className="font-heading font-bold text-5xl lg:text-6xl">Find Us</h1>
-                        <p className="text-muted-foreground text-lg">
-                            The fastest way to reach us is WhatsApp. Here&apos;s where we are and where else to find us.
-                        </p>
                     </div>
 
                     <div className="grid gap-10 lg:grid-cols-[2fr_3fr] lg:gap-16">

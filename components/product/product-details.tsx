@@ -18,7 +18,7 @@ const ProductDetails = ({ product, badge }: { product: IProduct; badge?: string 
 
     return (
         <Drawer swipeDirection="right">
-            <DrawerTrigger className="text-left">
+            <DrawerTrigger render={<div />} nativeButton={false} className="text-left">
                 <ProductCard product={product} badge={badge} />
             </DrawerTrigger>
             <DrawerContent className="mx-auto w-full max-w-lg">

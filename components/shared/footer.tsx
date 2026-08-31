@@ -1,16 +1,8 @@
 import Link from "next/link"
 import PaddingContainer from "./padding-container"
 import MaxContainer from "./max-container"
-import { BULK_ORDER_LINK, CONTACT_DATA } from "@/constants"
+import { BULK_ORDER_LINK, CONTACT_DATA, EXPLORE_LINKS } from "@/constants"
 import { FacebookIcon, InstagramIcon, TikTokIcon, WhatsAppIcon } from "@/icons"
-
-const EXPLORE_LINKS = [
-    { label: "Brands & Products", link: "/product-catalog" },
-    { label: "Our Line", link: "/our-line" },
-    { label: "Contact Us", link: "/contact-us" },
-    { label: "About Us", link: "/about-us" },
-    { label: "FAQ", link: "/faq" },
-]
 
 const Footer = () => {
     const year = new Date().getFullYear()

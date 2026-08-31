@@ -1,4 +1,3 @@
-import React from 'react'
 import { Dialog, DialogContent, DialogTrigger } from '../ui/dialog'
 import { ShoppingBasket, ShoppingCart } from 'lucide-react'
 import { Badge } from '../ui/badge';

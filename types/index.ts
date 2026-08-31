@@ -1,3 +1,5 @@
+import { SORT_OPTIONS } from "@/constants";
+
 export interface IProduct {
     _id: string;
     name: string;
@@ -42,3 +44,28 @@ export interface ICartState {
     increaseQty: (productId: string) => void;
     decreaseQty: (productId: string) => void;
 }
+
+export interface IContactItems {
+    label: string;
+    value: string;
+    href?: string;
+    note?: string;
+}
+
+export type FilterOption = { label: string; count: number };
+
+export type Facet = {
+    key: string;
+    title: string;
+    options: FilterOption[];
+    activeValue: string;
+    onSelect: (value: string) => void;
+    defaultExpanded?: boolean;
+};
+
+export type SortValue = (typeof SORT_OPTIONS)[number]["value"] | "";
+
+export type ProductCatalogSectionProps = {
+    products: IProduct[];
+    categories: IProductCategory[];
+};

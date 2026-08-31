@@ -40,7 +40,7 @@ const BeFirstSection = () => {
                 <MaxContainer className="text-center">
                     <h2 className="font-heading font-bold text-4xl lg:text-5xl">Be First</h2>
                     <p className="mt-4 text-lg text-muted-foreground">
-                        Choose the list that fits you — retailers and consumers get separate updates.
+                        Choose the list that fits you. Retailers and consumers get separate updates.
                     </p>
 
                     <div className="mt-12 grid gap-6 md:grid-cols-2 max-w-3xl mx-auto text-left">

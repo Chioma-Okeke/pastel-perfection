@@ -1,34 +1,10 @@
 import PaddingContainer from "../shared/padding-container"
 import MaxContainer from "../shared/max-container"
-import { CONTACT_DATA } from "@/constants"
-import { FacebookIcon, InstagramIcon, TikTokIcon } from "@/icons"
-
-
-
-const SOCIAL_LINKS = [
-    {
-        label: "Instagram",
-        handle: "@pastelperfectionbeauty",
-        href: CONTACT_DATA.INSTAGRAM,
-        Icon: InstagramIcon,
-    },
-    {
-        label: "TikTok",
-        handle: "@pastelperfectionbeauty",
-        href: CONTACT_DATA.TIKTOK,
-        Icon: TikTokIcon,
-    },
-    {
-        label: "Facebook",
-        handle: "Pastel Perfection Beauty",
-        href: CONTACT_DATA.FACEBOOK,
-        Icon: FacebookIcon,
-    },
-]
+import { SOCIAL_LINKS } from "@/constants"
 
 const AccountsSection = () => {
     return (
-        <section className="py-16 lg:py-24">
+        <section className="py-16 lg:py-20">
             <PaddingContainer>
                 <MaxContainer className="space-y-4">
                     <h2 className="font-heading font-bold text-4xl lg:text-5xl">Follow Us</h2>

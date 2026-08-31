@@ -2,107 +2,16 @@
 
 import { useEffect, useMemo, useState } from "react"
 import Link from "next/link"
-import { Check, ChevronDown, Minus, Plus, SlidersHorizontal, X } from "lucide-react"
-import { AnimatePresence, motion } from "framer-motion"
+import { SlidersHorizontal } from "lucide-react"
 import PaddingContainer from "../shared/padding-container"
 import MaxContainer from "../shared/max-container"
-import { Button } from "../ui/button"
-import { cn } from "@/lib/utils"
 import ProductDetails from "./product-details"
-import { IProduct, IProductCategory } from "@/types"
+import { Facet, FilterOption, ProductCatalogSectionProps, SortValue } from "@/types"
+import { FilterSidebar } from "./filter-section"
+import { countBy } from "@/lib/utils"
+import { SORT_OPTIONS } from "@/constants"
+import { MobileFilterSidebar } from "./mobile-filter-sidebar"
 
-type FilterOption = { label: string; count: number }
-
-type Facet = {
-    key: string
-    title: string
-    options: FilterOption[]
-    activeValue: string
-    onSelect: (value: string) => void
-    defaultExpanded?: boolean
-}
-
-const FilterSection = ({ title, options, activeValue, onSelect, defaultExpanded = true }: Omit<Facet, "key">) => {
-    const [expanded, setExpanded] = useState(defaultExpanded)
-
-    return (
-        <div className="border-b border-border">
-            <button
-                onClick={() => setExpanded((value) => !value)}
-                className={cn(
-                    "flex w-full items-center justify-between px-4 py-3 text-sm font-semibold tracking-widest uppercase transition-colors",
-                    expanded ? "bg-primary text-primary-foreground" : "bg-transparent text-foreground"
-                )}
-            >
-                {title}
-                {expanded ? <Minus className="size-4" /> : <Plus className="size-4" />}
-            </button>
-            {expanded && (
-                <ul className="space-y-1 py-3">
-                    {options.map((option) => {
-                        const isActive = activeValue === option.label
-                        return (
-                            <li key={option.label}>
-                                <button
-                                    onClick={() => onSelect(isActive ? "All" : option.label)}
-                                    className="flex w-full items-center gap-2 px-4 py-1.5 text-left text-sm transition-colors hover:text-accent"
-                                >
-                                    <span
-                                        className={cn(
-                                            "flex size-4 shrink-0 items-center justify-center rounded-sm border",
-                                            isActive ? "border-primary bg-primary text-primary-foreground" : "border-border"
-                                        )}
-                                    >
-                                        {isActive && <Check className="size-3" />}
-                                    </span>
-                                    <span className={isActive ? "font-medium text-foreground" : "text-muted-foreground"}>
-                                        {option.label} ({option.count})
-                                    </span>
-                                </button>
-                            </li>
-                        )
-                    })}
-                </ul>
-            )}
-        </div>
-    )
-}
-
-const FilterSidebar = ({ facets }: { facets: Facet[] }) => (
-    <div>
-        <p className="mb-4 text-lg font-semibold text-foreground">Filter By:</p>
-        {facets.map((facet) => (
-            <FilterSection
-                key={facet.key}
-                title={facet.title}
-                options={facet.options}
-                activeValue={facet.activeValue}
-                onSelect={facet.onSelect}
-                defaultExpanded={facet.defaultExpanded}
-            />
-        ))}
-    </div>
-)
-
-const SORT_OPTIONS = [
-    { value: "name-asc", label: "Name (A–Z)" },
-    { value: "name-desc", label: "Name (Z–A)" },
-] as const
-
-type SortValue = (typeof SORT_OPTIONS)[number]["value"] | ""
-
-const countBy = (values: string[]): FilterOption[] => {
-    const counts = new Map<string, number>()
-    values.forEach((value) => counts.set(value, (counts.get(value) ?? 0) + 1))
-    return Array.from(counts.entries())
-        .map(([label, count]) => ({ label, count }))
-        .sort((a, b) => a.label.localeCompare(b.label))
-}
-
-type ProductCatalogSectionProps = {
-    products: IProduct[]
-    categories: IProductCategory[]
-}
 
 const ProductCatalogSection = ({ products, categories }: ProductCatalogSectionProps) => {
     const [activeBrand, setActiveBrand] = useState<string>("All")
@@ -249,49 +158,8 @@ const ProductCatalogSection = ({ products, categories }: ProductCatalogSectionPr
                     </div>
                 </MaxContainer>
             </PaddingContainer>
-
-            <AnimatePresence>
-                {filtersOpen && (
-                    <>
-                        <motion.div
-                            key="filters-backdrop"
-                            className="fixed inset-0 z-40 bg-black/50 lg:hidden"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onClick={() => setFiltersOpen(false)}
-                        />
-                        <motion.aside
-                            key="filters-panel"
-                            className="fixed inset-y-0 right-0 z-50 flex w-[85%] max-w-sm flex-col overflow-y-auto bg-background p-6 shadow-2xl lg:hidden"
-                            initial={{ x: "100%" }}
-                            animate={{ x: 0 }}
-                            exit={{ x: "100%" }}
-                            transition={{ type: "tween", duration: 0.28 }}
-                            role="dialog"
-                            aria-modal="true"
-                        >
-                            <div className="mb-6 flex items-center justify-between">
-                                <p className="text-lg font-semibold text-foreground">Filters</p>
-                                <button aria-label="Close filters" onClick={() => setFiltersOpen(false)}>
-                                    <X className="size-6" />
-                                </button>
-                            </div>
-
-                            <FilterSidebar facets={facets} />
-
-                            <div className="mt-8 flex gap-3">
-                                <Button variant="outline" className="h-auto flex-1 rounded-full py-3" onClick={resetFilters}>
-                                    Reset
-                                </Button>
-                                <Button className="h-auto flex-1 rounded-full py-3" onClick={() => setFiltersOpen(false)}>
-                                    Show Results
-                                </Button>
-                            </div>
-                        </motion.aside>
-                    </>
-                )}
-            </AnimatePresence>
+            
+            <MobileFilterSidebar filtersOpen={filtersOpen} facets={facets} resetFilters={resetFilters} setFiltersOpen={setFiltersOpen}/>
         </section>
     )
 }

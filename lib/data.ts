@@ -278,3 +278,30 @@ export const upcomingLaunchesData = [
         imgSrc: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Vitamin_C_shower_gel_i6tdph.jpg",
     },
 ];
+
+
+export const PHILOSOPHY_ITEMS = [
+    {
+        title: "Silky",
+        description: "A featherlight glide that never feels heavy or greasy.",
+    },
+    {
+        title: "Featherlight",
+        description: "Fast-absorbing formulas built for everyday, all-day wear.",
+    },
+    {
+        title: "Gentle",
+        description: "Soft on skin, honest in claims, no miracle promises, just care.",
+    },
+]
+
+export const PRODUCT_RENDERS = [
+    {
+        label: "Body lotion",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Vitamin_C_lotion_pd7w2o.jpg"
+    },
+    {
+        label: "Shower gel",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Niacinamide_lotion_ub4wfb.jpg"
+    },
+]

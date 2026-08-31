@@ -17,7 +17,7 @@ const NavBar = () => {
 
     return (
         <MaxContainer>
-            <header className={cn('z-50 w-full py-4 px-2 lg:px-25 lg:py-6', {
+            <header className={cn('z-50 w-full py-4 px-2 lg:px-25 lg:py-6 border-b border-border', {
                 '': (pathname !== "/product-catalog" && pathname !== "/contact-us" && pathname !== "/about-us")
             })}>
                 <div className="flex items-center justify-between gap-6 max-lg:px-4">

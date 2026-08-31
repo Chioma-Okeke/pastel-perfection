@@ -6,10 +6,9 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { upcomingLaunchesData } from "@/lib/data";
 import { SwiperSlide, Swiper, SwiperClass } from "swiper/react";
-import { Autoplay, EffectCards, EffectCoverflow, EffectCreative, EffectCube, EffectFade, EffectFlip, Mousewheel } from "swiper/modules";
+import { Autoplay, EffectCube, Mousewheel } from "swiper/modules";
 import { useRef } from "react";
 import { Circle } from "lucide-react";
-import { Button } from "../ui/button";
 
 const LaunchingSoon = () => {
     const swiperRef = useRef<SwiperClass | null>(null)

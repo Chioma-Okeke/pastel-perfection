@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Mousewheel } from "swiper/modules";
 import Image from 'next/image';
@@ -87,7 +87,7 @@ function HeroSection() {
                     {/* <CustomButton /> */}
                     <div className="flex gap-10 max-md:flex-col">
                         <Button className="h-auto py-4 px-7 rounded-full border-primary" onClick={sendToCatalog}>
-                            View Catalog
+                            View Products
                         </Button>
                         <Button className="h-auto py-4 px-7 rounded-full border-primary text-foreground" variant="outline">
                             Chat on WhatsApp
