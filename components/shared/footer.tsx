@@ -3,6 +3,7 @@ import PaddingContainer from "./padding-container"
 import MaxContainer from "./max-container"
 import { BULK_ORDER_LINK, CONTACT_DATA, EXPLORE_LINKS } from "@/constants"
 import { FacebookIcon, InstagramIcon, TikTokIcon, WhatsAppIcon } from "@/icons"
+import { Logo } from "./logo"
 
 const Footer = () => {
     const year = new Date().getFullYear()
@@ -14,7 +15,7 @@ const Footer = () => {
                     <MaxContainer className="py-16 lg:py-20">
                         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
                             <div>
-                                <h3 className="font-heading text-2xl font-bold">Pastel Perfection Beauty</h3>
+                                <Logo />
                                 <p className="mt-3 max-w-xs text-primary-foreground/60">
                                     Authentic wholesale beauty distribution across Nigeria.
                                 </p>

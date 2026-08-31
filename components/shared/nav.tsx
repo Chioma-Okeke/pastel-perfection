@@ -10,6 +10,7 @@ import { useWindowWidth } from "@/hook/use-width"
 import Image from "next/image"
 import MobileSideBarNav from "./mobile-side-bar-nav"
 import MaxContainer from "./max-container"
+import { Logo } from "./logo"
 
 const NavBar = () => {
     const width = useWindowWidth()
@@ -23,15 +24,7 @@ const NavBar = () => {
                 <div className="flex items-center justify-between gap-6 max-lg:px-4">
                     {pathname === '/product-catalog' && width && width < 1024 && <CartModal />}
                     <div className="flex items-center lg:gap-32 max-lg:flex-1 w-full  justify-between">
-                        <Link href="/">
-                            <Image
-                                src="https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png"
-                                alt="Logo"
-                                className="rounded-full"
-                                width={40}
-                                height={40}
-                            />
-                        </Link>
+                        <Logo />
                         <nav className="hidden lg:block">
                             <ul className="flex items-center gap-8">
                                 {HEADER_URLS.map((item) => {
