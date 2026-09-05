@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity'
 import { PackageIcon } from '@sanity/icons'
 
-const PRODUCT_TYPE_OPTIONS = ['Pads', 'Face Cream', 'Serum', 'Body Lotion', 'Soap', 'Oil', 'Shower Gel', 'Body Scrubs']
+const PRODUCT_TYPE_OPTIONS = ['Pads', 'Face Cream', 'Serum', 'Body Lotion', 'Bar Soap', 'Oil', 'Shower Gel', 'Body Scrubs', "Facial Wash", "Sunscreen", "Eye Cream", "Body Treatment Cream", "Facial Cleanser", "Toner", "Facial Masks", "Peeling Oil"]
 
 export const product = defineType({
   name: 'product',
