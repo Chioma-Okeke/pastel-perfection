@@ -1,14 +1,11 @@
 'use client'
 
 import Image from "next/image"
-import { Image as ImageIcon } from "lucide-react"
-import { Button } from "../ui/button"
-import { useCartStore } from "@/store/useCartStore"
+import AddToCartButton from "./add-to-cart-button"
 import { IProduct } from "@/types"
 
 const ProductCard = ({ product, badge }: { product: IProduct; badge?: string }) => {
-    const addToCart = useCartStore((state) => state.addToCart)
-    const image = product.images[0]
+    const image = product.images?.length > 0 ? product.images[0] : null
     const brand = product.category[0]?.title
 
     return (
@@ -20,27 +17,17 @@ const ProductCard = ({ product, badge }: { product: IProduct; badge?: string }) 
                     </span>
                 )}
                 {image ? (
-                    <Image src={image.asset.url} alt={image.alt || product.name} fill sizes="220px" className="object-cover lg:group-hover:scale-105 transition-all duration-300" />
+                    <Image src={image.asset?.url} alt={image.alt || product.name} fill sizes="220px" className="object-cover lg:group-hover:scale-105 transition-all duration-300" />
                 ) : (
-                    <ImageIcon className="size-8 text-accent/50" />
+                    <Image src='https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png' alt="Company Logo" fill sizes="220px" className="object-cover lg:group-hover:scale-105 transition-all duration-300" />
                 )}
             </div>
             <div className="flex flex-1 flex-col gap-3 py-4">
                 <div className="flex-1 flex flex-col justify-between">
                     {brand && <p className="text-accent text-xs font-semibold tracking-widest uppercase">{brand}</p>}
                     <h3 className="mt-1 font-semibold text-card-foreground leading-snug">{product.name}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{product.description}</p>
                 </div>
-                <Button
-                    variant="outline"
-                    className="mt-auto h-auto w-full py-2.5"
-                    onClick={(e) => {
-                        e.stopPropagation()
-                        addToCart(product)
-                    }}
-                >
-                    Add to Cart
-                </Button>
+                <AddToCartButton product={product} variant="outline" className="mt-auto" buttonClassName="h-auto w-full py-2.5" />
             </div>
         </div>
     )

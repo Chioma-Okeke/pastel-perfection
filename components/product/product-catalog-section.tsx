@@ -94,6 +94,7 @@ const ProductCatalogSection = ({ products, categories }: ProductCatalogSectionPr
         if (filtersOpen) window.addEventListener("keydown", onKey)
         return () => window.removeEventListener("keydown", onKey)
     }, [filtersOpen])
+    console.log(sortedProducts, "seorted Products")
 
     return (
         <section className="py-10 bg-white">

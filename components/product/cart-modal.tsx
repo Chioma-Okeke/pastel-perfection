@@ -3,18 +3,18 @@ import { ShoppingBasket, ShoppingCart } from 'lucide-react'
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { useCartStore } from '@/store/useCartStore';
+import { WHATSAPP_NUMBER } from '@/constants';
 
 function CartModal() {
     const { cart, decreaseQty, increaseQty, removeFromCart, clearCart } = useCartStore();
-    const phoneNumber = "2348033831759";
 
     const handleSendToWhatsApp = () => {
         if (cart.length === 0) return;
 
         const itemsList = cart.map((item) => `- ${item.name} | ${item.quantity} pieces`).join('%0A%0A');
         // const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-        const message = `Hello Veetgold,%0A%0AI'd like to order:%0A${itemsList}%0A%0APlease confirm availability.`;
-        const url = `https://wa.me/${phoneNumber}?text=${message}`;
+        const message = `Hello Pastel Perfection,%0A%0AI'd like to order:%0A${itemsList}%0A%0APlease confirm availability.`;
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         window.open(url, isMobile ? "_self" : "_blank");
         clearCart();

@@ -5,16 +5,14 @@ import Image from "next/image"
 import { Image as ImageIcon, X } from "lucide-react"
 import { IProduct } from "@/types"
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerTitle, DrawerTrigger } from "../ui/drawer"
-import { Button } from "../ui/button"
 import ProductCard from "./product-card"
-import { useCartStore } from "@/store/useCartStore"
+import AddToCartButton from "./add-to-cart-button"
 import { cn } from "@/lib/utils"
 
 const ProductDetails = ({ product, badge }: { product: IProduct; badge?: string }) => {
-    const addToCart = useCartStore((state) => state.addToCart)
     const [activeImageIndex, setActiveImageIndex] = useState(0)
     const brand = product.category[0]?.title
-    const activeImage = product.images[activeImageIndex]
+    const activeImage = product.images?.length > 0 ? product.images[activeImageIndex] : null
 
     return (
         <Drawer swipeDirection="right">
@@ -30,7 +28,7 @@ const ProductDetails = ({ product, badge }: { product: IProduct; badge?: string 
                     <div className="relative aspect-square w-full overflow-hidden rounded-md bg-accent/8">
                         {activeImage ? (
                             <Image
-                                src={activeImage.asset.url}
+                                src={activeImage.asset?.url}
                                 alt={activeImage.alt || product.name}
                                 fill
                                 sizes="512px"
@@ -38,14 +36,20 @@ const ProductDetails = ({ product, badge }: { product: IProduct; badge?: string 
                             />
                         ) : (
                             <div className="flex h-full w-full items-center justify-center">
-                                <ImageIcon className="size-10 text-accent/50" />
+                                <Image
+                                    src='https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png'
+                                    alt="Company Logo"
+                                    fill
+                                    sizes="512px"
+                                    className="object-cover"
+                                />
                             </div>
                         )}
                     </div>
 
-                    {product.images.length > 1 && (
+                    {product.images?.length > 1 && (
                         <div className="flex gap-2 overflow-x-auto pb-1">
-                            {product.images.map((image, index) => (
+                            {product.images?.map((image, index) => (
                                 <button
                                     key={image.asset._id}
                                     onClick={() => setActiveImageIndex(index)}
@@ -76,9 +80,7 @@ const ProductDetails = ({ product, badge }: { product: IProduct; badge?: string 
                         </DrawerDescription>
                     </div>
 
-                    <Button className="h-auto w-full rounded-full py-3" onClick={() => addToCart(product)}>
-                        Add to Cart
-                    </Button>
+                    <AddToCartButton product={product} buttonClassName="h-auto w-full rounded-full py-3" />
                 </div>
             </DrawerContent>
         </Drawer>
