@@ -2,7 +2,11 @@ import { IProduct, IProductCategory } from "@/types";
 
 export const productCategories: IProductCategory[] = [
     { _id: "cat-medicube", title: "Medicube", slug: { current: "medicube" } },
-    { _id: "cat-dr-rashel", title: "Dr. Rashel", slug: { current: "dr-rashel" } },
+    {
+        _id: "cat-dr-rashel",
+        title: "Dr. Rashel",
+        slug: { current: "dr-rashel" },
+    },
 ];
 
 const [medicube, drRashel] = productCategories;
@@ -195,27 +199,48 @@ export const productsData: IProduct[] = [
 ];
 
 export const brandsData = [
-    { name: "Dr Rashel", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
-    { name: "Medicube", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
-    { name: "Estelin", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
-    { name: "AichuBeauty", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
-    { name: "Nary", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
-    { name: "Dr Davey", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
-    { name: "Dr Meinaier", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
+    {
+        name: "Dr Rashel",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
+    },
+    {
+        name: "Medicube",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
+    },
+    {
+        name: "Estelin",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
+    },
+    {
+        name: "AichuBeauty",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
+    },
+    {
+        name: "Nary",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
+    },
+    {
+        name: "Dr Davey",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
+    },
+    {
+        name: "Dr Meinaier",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
+    },
 ];
 
 export const heroImageData = [
     {
+        imgSrc: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1789790695/IMG_0193_eh67if.jpg",
+        alt: "Glutathione Vitamin C",
+    },
+    {
+        imgSrc: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1789790695/IMG_0195_b5funm.jpg",
+        alt: "Alpha Arbutin and Niacinamide",
+    },
+    {
         imgSrc: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1788206882/Sadoer_uvi7ch.jpg",
         alt: "Sadoer Anti Wrinkle Face Cream",
-    },
-    {
-        imgSrc: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
-        alt: "Company Logo",
-    },
-    {
-        imgSrc: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1763093178/ladies-hero_ig7yxp.png",
-        alt: "Female Models",
     },
 ];
 
@@ -279,7 +304,6 @@ export const upcomingLaunchesData = [
     },
 ];
 
-
 export const PHILOSOPHY_ITEMS = [
     {
         title: "Silky",
@@ -287,21 +311,23 @@ export const PHILOSOPHY_ITEMS = [
     },
     {
         title: "Featherlight",
-        description: "Fast-absorbing formulas built for everyday, all-day wear.",
+        description:
+            "Fast-absorbing formulas built for everyday, all-day wear.",
     },
     {
         title: "Gentle",
-        description: "Soft on skin, honest in claims, no miracle promises, just care.",
+        description:
+            "Soft on skin, honest in claims, no miracle promises, just care.",
     },
-]
+];
 
 export const PRODUCT_RENDERS = [
     {
         label: "Body lotion",
-        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Vitamin_C_lotion_pd7w2o.jpg"
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Vitamin_C_lotion_pd7w2o.jpg",
     },
     {
         label: "Shower gel",
-        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Niacinamide_lotion_ub4wfb.jpg"
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Niacinamide_lotion_ub4wfb.jpg",
     },
-]
+];

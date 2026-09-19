@@ -28,7 +28,7 @@ const BrandLogos = () => {
                         >
                             {[...brandsData, ...brandsData].map((brand, index) => (
                                 <SwiperSlide key={index} className="w-auto!">
-                                    <div className="flex h-auto w-36 items-center justify-center gap-2 opacity-40 grayscale transition-opacity hover:opacity-70" title={brand.name}>
+                                    <div className="flex h-auto w-36 items-center justify-center gap-2 opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0" title={brand.name}>
                                         <div className="relative overflow-hidden w-full aspect-square">
                                             <Image src={brand.imgUrl} fill className="object-cover object-center" alt={brand.name} />
                                         </div>
