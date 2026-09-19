@@ -1,6 +1,5 @@
 'use client'
 
-import { Image as ImageIcon } from "lucide-react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, FreeMode } from "swiper/modules"
 import PaddingContainer from "../shared/padding-container"

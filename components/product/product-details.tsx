@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Image as ImageIcon, X } from "lucide-react"
+import { X } from "lucide-react"
 import { IProduct } from "@/types"
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerTitle, DrawerTrigger } from "../ui/drawer"
 import ProductCard from "./product-card"
