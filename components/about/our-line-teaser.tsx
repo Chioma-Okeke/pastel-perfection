@@ -1,8 +1,12 @@
+'use client'
+
 import Link from "next/link"
 import Image from "next/image"
+import { motion } from "framer-motion"
 import { ArrowUpRight, Circle } from "lucide-react"
 import PaddingContainer from "../shared/padding-container"
 import MaxContainer from "../shared/max-container"
+import { AnimatedSection } from "../shared/animated-section"
 import { Button } from "../ui/button"
 
 const OurLineTeaser = () => {
@@ -14,7 +18,7 @@ const OurLineTeaser = () => {
             <PaddingContainer>
                 <MaxContainer className="relative py-16 lg:py-24">
                     <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-                        <div className="text-center lg:text-left">
+                        <AnimatedSection className="text-center lg:text-left">
                             <p className="flex items-center justify-center gap-2 lg:justify-start text-accent text-xs font-semibold tracking-[0.2em] uppercase">
                                 <Circle size={8} fill="currentColor" stroke="none" />
                                 <span>Launching Soon</span>
@@ -34,26 +38,40 @@ const OurLineTeaser = () => {
                                     <ArrowUpRight className="size-4" />
                                 </Button>
                             </div>
-                        </div>
+                        </AnimatedSection>
 
                         <div className="relative mx-auto h-64 w-full max-w-xs sm:h-72 lg:mx-0 lg:h-80">
-                            <div className="absolute left-1/2 top-0 aspect-3/4 w-40 translate-x-[-85%] -rotate-6 overflow-hidden rounded-2xl ring-1 ring-primary-foreground/15 sm:w-44">
-                                <Image
-                                    src="https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Vitamin_C_lotion_pd7w2o.jpg"
-                                    alt="Vitamin C Lotion"
-                                    fill
-                                    sizes="176px"
-                                    className="object-cover object-center"
-                                />
+                            <div className="absolute left-1/2 top-0 aspect-3/4 w-40 translate-x-[-85%] -rotate-6 sm:w-44">
+                                <AnimatedSection className="size-full">
+                                    <motion.div
+                                        whileHover={{ scale: 1.05, transition: { duration: 0.25, ease: "easeOut" } }}
+                                        className="relative size-full overflow-hidden rounded-2xl ring-1 ring-primary-foreground/15"
+                                    >
+                                        <Image
+                                            src="https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Vitamin_C_lotion_pd7w2o.jpg"
+                                            alt="Vitamin C Lotion"
+                                            fill
+                                            sizes="176px"
+                                            className="object-cover object-center"
+                                        />
+                                    </motion.div>
+                                </AnimatedSection>
                             </div>
-                            <div className="absolute left-1/2 top-8 aspect-3/4 w-40 translate-x-[-15%] rotate-6 overflow-hidden rounded-2xl ring-1 ring-primary-foreground/15 sm:w-44">
-                                <Image
-                                    src="https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Niacinamide_lotion_ub4wfb.jpg"
-                                    alt="Niacinamide Lotion"
-                                    fill
-                                    sizes="176px"
-                                    className="object-cover object-center"
-                                />
+                            <div className="absolute left-1/2 top-8 aspect-3/4 w-40 translate-x-[-15%] rotate-6 sm:w-44">
+                                <AnimatedSection className="size-full">
+                                    <motion.div
+                                        whileHover={{ scale: 1.05, transition: { duration: 0.25, ease: "easeOut" } }}
+                                        className="relative size-full overflow-hidden rounded-2xl ring-1 ring-primary-foreground/15"
+                                    >
+                                        <Image
+                                            src="https://res.cloudinary.com/djrp3aaq9/image/upload/v1785616553/Niacinamide_lotion_ub4wfb.jpg"
+                                            alt="Niacinamide Lotion"
+                                            fill
+                                            sizes="176px"
+                                            className="object-cover object-center"
+                                        />
+                                    </motion.div>
+                                </AnimatedSection>
                             </div>
                         </div>
                     </div>

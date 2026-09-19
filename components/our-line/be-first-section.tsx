@@ -3,6 +3,7 @@
 import { FormEvent } from "react"
 import PaddingContainer from "../shared/padding-container"
 import MaxContainer from "../shared/max-container"
+import { AnimatedSection } from "../shared/animated-section"
 import { Button } from "../ui/button"
 import { CONTACT_DATA } from "@/constants"
 
@@ -38,34 +39,40 @@ const BeFirstSection = () => {
         <section className="bg-muted py-16 lg:py-24">
             <PaddingContainer>
                 <MaxContainer className="text-center">
-                    <h2 className="font-heading font-bold text-4xl lg:text-5xl">Be First</h2>
-                    <p className="mt-4 text-lg text-muted-foreground">
-                        Choose the list that fits you. Retailers and consumers get separate updates.
-                    </p>
+                    <AnimatedSection>
+                        <h2 className="font-heading font-bold text-4xl lg:text-5xl">Be First</h2>
+                        <p className="mt-4 text-lg text-muted-foreground">
+                            Choose the list that fits you. Retailers and consumers get separate updates.
+                        </p>
+                    </AnimatedSection>
 
                     <div className="mt-12 grid gap-6 md:grid-cols-2 max-w-3xl mx-auto text-left">
-                        <form onSubmit={handleRetailerSubmit} className="space-y-4 rounded-md bg-card p-8">
-                            <div>
-                                <p className="text-accent text-xs font-semibold tracking-widest uppercase">Retailers</p>
-                                <h3 className="mt-1 font-heading font-bold text-xl text-card-foreground">Join the retailer pre-order list</h3>
-                            </div>
-                            <input name="businessName" type="text" required placeholder="Business name" className={inputClasses} />
-                            <input name="phone" type="tel" required placeholder="Phone / WhatsApp" className={inputClasses} />
-                            <Button type="submit" className="h-auto w-full rounded-full py-3">
-                                Join Pre-Order List
-                            </Button>
-                        </form>
+                        <AnimatedSection>
+                            <form onSubmit={handleRetailerSubmit} className="space-y-4 rounded-md bg-card p-8">
+                                <div>
+                                    <p className="text-accent text-xs font-semibold tracking-widest uppercase">Retailers</p>
+                                    <h3 className="mt-1 font-heading font-bold text-xl text-card-foreground">Join the retailer pre-order list</h3>
+                                </div>
+                                <input name="businessName" type="text" required placeholder="Business name" className={inputClasses} />
+                                <input name="phone" type="tel" required placeholder="Phone / WhatsApp" className={inputClasses} />
+                                <Button type="submit" className="h-auto w-full rounded-full py-3">
+                                    Join Pre-Order List
+                                </Button>
+                            </form>
+                        </AnimatedSection>
 
-                        <form onSubmit={handleConsumerSubmit} className="space-y-4 rounded-md bg-card p-8">
-                            <div>
-                                <p className="text-accent text-xs font-semibold tracking-widest uppercase">Consumers</p>
-                                <h3 className="mt-1 font-heading font-bold text-xl text-card-foreground">Be first to know</h3>
-                            </div>
-                            <input name="email" type="email" required placeholder="Email address" className={inputClasses} />
-                            <Button type="submit" className="h-auto w-full rounded-full py-3">
-                                Be First to Know
-                            </Button>
-                        </form>
+                        <AnimatedSection>
+                            <form onSubmit={handleConsumerSubmit} className="space-y-4 rounded-md bg-card p-8">
+                                <div>
+                                    <p className="text-accent text-xs font-semibold tracking-widest uppercase">Consumers</p>
+                                    <h3 className="mt-1 font-heading font-bold text-xl text-card-foreground">Be first to know</h3>
+                                </div>
+                                <input name="email" type="email" required placeholder="Email address" className={inputClasses} />
+                                <Button type="submit" className="h-auto w-full rounded-full py-3">
+                                    Be First to Know
+                                </Button>
+                            </form>
+                        </AnimatedSection>
                     </div>
                 </MaxContainer>
             </PaddingContainer>

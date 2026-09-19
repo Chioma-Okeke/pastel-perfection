@@ -1,8 +1,11 @@
+'use client'
+
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import PaddingContainer from "../shared/padding-container"
 import MaxContainer from "../shared/max-container"
+import { AnimatedSection } from "../shared/animated-section"
 import { Button } from "../ui/button"
 
 const AboutTeaser = () => {
@@ -11,7 +14,7 @@ const AboutTeaser = () => {
             <PaddingContainer>
                 <MaxContainer>
                     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-                        <div className="max-w-md space-y-6">
+                        <AnimatedSection className="max-w-md space-y-6">
                             <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight">
                                 Authentic beauty, curated for the shelves that matter
                             </h2>
@@ -25,9 +28,9 @@ const AboutTeaser = () => {
                                 Learn More
                                 <ArrowUpRight className="size-4" />
                             </Button>
-                        </div>
+                        </AnimatedSection>
 
-                        <div className="relative aspect-4/5 w-full overflow-hidden rounded-[32px] lg:aspect-auto lg:h-125">
+                        <AnimatedSection className="relative aspect-4/5 w-full overflow-hidden rounded-[32px] lg:aspect-auto lg:h-125">
                             <Image
                                 src="https://res.cloudinary.com/djrp3aaq9/image/upload/v1788036454/about_us_image_iepf1n.avif"
                                 alt="Woman applying skincare"
@@ -35,7 +38,7 @@ const AboutTeaser = () => {
                                 sizes="(min-width: 1024px) 50vw, 100vw"
                                 className="object-cover object-center"
                             />
-                        </div>
+                        </AnimatedSection>
                     </div>
                 </MaxContainer>
             </PaddingContainer>

@@ -87,3 +87,5 @@ export const SOCIAL_LINKS = [
         Icon: FacebookIcon,
     },
 ];
+
+export const PRODUCT_TYPE_OPTIONS = ['Pads', 'Face Cream', 'Serum', 'Body Lotion', 'Soap', 'Oil', 'Shower Gel', 'Body Scrubs']

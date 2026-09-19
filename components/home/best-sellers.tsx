@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react"
 import MaxContainer from "../shared/max-container"
 import PaddingContainer from "../shared/padding-container"
 import ProductDetails from "../product/product-details"
+import { AnimatedSection } from "../shared/animated-section"
 import { sanityFetch } from "@/sanity/lib/live"
 import { BEST_SELLING_PRODUCTS_QUERY } from "@/sanity/lib/queries"
 import { IProduct } from "@/types"
@@ -14,7 +15,7 @@ const BestSellers = async () => {
         <section className="py-10 lg:py-20">
             <PaddingContainer>
                 <MaxContainer className="space-y-10">
-                    <div className="flex items-center justify-between">
+                    <AnimatedSection className="flex items-center justify-between">
                         <h2 className="font-heading italic text-3xl lg:text-4xl">Best Sellers</h2>
                         <Link
                             href="/product-catalog"
@@ -25,11 +26,13 @@ const BestSellers = async () => {
                                 <ArrowRight className="size-3.5" />
                             </span>
                         </Link>
-                    </div>
+                    </AnimatedSection>
 
                     <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
                         {(bestSellingProducts as IProduct[]).map((product) => (
-                            <ProductDetails key={product._id} product={product} badge="Best Seller" />
+                            <AnimatedSection key={product._id}>
+                                <ProductDetails product={product} badge="Best Seller" />
+                            </AnimatedSection>
                         ))}
                     </div>
                 </MaxContainer>

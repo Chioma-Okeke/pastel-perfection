@@ -9,6 +9,7 @@ import { SwiperSlide, Swiper, SwiperClass } from "swiper/react";
 import { Autoplay, EffectCube, Mousewheel } from "swiper/modules";
 import { useRef } from "react";
 import { Circle } from "lucide-react";
+import { AnimatedSection } from "../shared/animated-section";
 
 const LaunchingSoon = () => {
     const swiperRef = useRef<SwiperClass | null>(null)
@@ -17,7 +18,7 @@ const LaunchingSoon = () => {
             <PaddingContainer>
                 <MaxContainer className="py-16 lg:py-28">
                     <div className="flex max-lg:flex-col items-center gap-12 lg:gap-20">
-                        <div className="flex-1 space-y-6 max-lg:text-center">
+                        <AnimatedSection className="flex-1 space-y-6 max-lg:text-center">
                             <p className="flex items-center gap-2 max-lg:justify-center text-accent text-xs font-semibold tracking-[0.2em] uppercase">
                                 <Circle size={8} fill="currentColor" stroke="none" />
                                 <span>Launching Soon</span>
@@ -28,7 +29,7 @@ const LaunchingSoon = () => {
                             <p className="text-primary-foreground/70 text-base lg:text-lg max-w-md max-lg:mx-auto">
                                 Silky, featherlight, gentle. Our own house line is coming. Be first to stock it or be first to try it.
                             </p>
-                        </div>
+                        </AnimatedSection>
                         <AnimatePresence mode="wait">
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.95 }}

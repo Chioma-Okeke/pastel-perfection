@@ -195,13 +195,13 @@ export const productsData: IProduct[] = [
 ];
 
 export const brandsData = [
-    { name: "Dr Rashel" },
-    { name: "Medicube" },
-    { name: "Estelin" },
-    { name: "AichuBeauty" },
-    { name: "Nary" },
-    { name: "Dr Davey" },
-    { name: "Dr Meinaier" },
+    { name: "Dr Rashel", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
+    { name: "Medicube", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
+    { name: "Estelin", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
+    { name: "AichuBeauty", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
+    { name: "Nary", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
+    { name: "Dr Davey", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
+    { name: "Dr Meinaier", imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png" },
 ];
 
 export const heroImageData = [

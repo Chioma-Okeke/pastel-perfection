@@ -6,6 +6,7 @@ import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import PaddingContainer from "../shared/padding-container";
 import MaxContainer from "../shared/max-container";
+import { AnimatedSection } from "../shared/animated-section";
 import { testimonialsData } from "@/lib/data";
 
 const Testimonials = () => {
@@ -19,9 +20,11 @@ const Testimonials = () => {
         <section className="py-16 lg:py-24">
             <PaddingContainer>
                 <MaxContainer className="space-y-12 lg:space-y-16">
-                    <h2 className="font-heading font-bold text-4xl lg:text-5xl">What Retailers Say</h2>
+                    <AnimatedSection>
+                        <h2 className="font-heading font-bold text-4xl lg:text-5xl">What Retailers Say</h2>
+                    </AnimatedSection>
 
-                    <div className="max-w-3xl mx-auto text-center">
+                    <AnimatedSection className="max-w-3xl mx-auto text-center">
                         <Quote className="mx-auto size-10 text-accent/40" fill="currentColor" stroke="none" />
 
                         <Swiper
@@ -85,7 +88,7 @@ const Testimonials = () => {
                                 <ChevronRight className="size-4" />
                             </button>
                         </div>
-                    </div>
+                    </AnimatedSection>
                 </MaxContainer>
             </PaddingContainer>
         </section>

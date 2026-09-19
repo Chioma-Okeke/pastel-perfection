@@ -5,6 +5,7 @@ import Link from "next/link"
 import { SlidersHorizontal } from "lucide-react"
 import PaddingContainer from "../shared/padding-container"
 import MaxContainer from "../shared/max-container"
+import { AnimatedSection } from "../shared/animated-section"
 import ProductDetails from "./product-details"
 import { Facet, FilterOption, ProductCatalogSectionProps, SortValue } from "@/types"
 import { FilterSidebar } from "./filter-section"
@@ -100,9 +101,11 @@ const ProductCatalogSection = ({ products, categories }: ProductCatalogSectionPr
         <section className="py-10 bg-white">
             <PaddingContainer>
                 <MaxContainer className="space-y-8">
-                    <h1 className="font-heading font-bold text-4xl">Products</h1>
+                    <AnimatedSection>
+                        <h1 className="font-heading font-bold text-4xl">Products</h1>
+                    </AnimatedSection>
 
-                    <div className="flex max-md:flex-col md:items-center max-md:gap-5 justify-between border-b border-border pb-3 text-sm">
+                    <AnimatedSection className="flex max-md:flex-col md:items-center max-md:gap-5 justify-between border-b border-border pb-3 text-sm">
                         <nav className="text-muted-foreground">
                             <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
                             <span className="mx-2">/</span>
@@ -138,17 +141,19 @@ const ProductCatalogSection = ({ products, categories }: ProductCatalogSectionPr
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    </AnimatedSection>
 
                     <div className="lg:grid lg:grid-cols-[240px_1fr] lg:items-start lg:gap-10">
-                        <aside className="hidden lg:block">
+                        <AnimatedSection className="hidden lg:block">
                             <FilterSidebar facets={facets} />
-                        </aside>
+                        </AnimatedSection>
 
                         {sortedProducts.length > 0 ? (
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))] gap-5">
                                 {sortedProducts.map((product) => (
-                                    <ProductDetails key={product._id} product={product} />
+                                    <AnimatedSection key={product._id}>
+                                        <ProductDetails product={product} />
+                                    </AnimatedSection>
                                 ))}
                             </div>
                         ) : (
