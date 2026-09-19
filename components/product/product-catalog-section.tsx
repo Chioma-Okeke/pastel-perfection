@@ -130,7 +130,7 @@ const ProductCatalogSection = ({ products, categories }: ProductCatalogSectionPr
                                 <select
                                     value={sortBy}
                                     onChange={(e) => setSortBy(e.target.value as SortValue)}
-                                    className="w-full appearance-none border border-border bg-background py-2 lg:px-9 text-center text-xs font-semibold tracking-widest uppercase text-foreground focus:outline-none focus:ring-2 focus:ring-ring/50"
+                                    className="w-full appearance-none border border-border bg-background py-2 px-3 lg:px-9 text-center text-xs font-semibold tracking-widest uppercase text-foreground focus:outline-none focus:ring-2 focus:ring-ring/50"
                                 >
                                     <option value="" disabled hidden>Sort By</option>
                                     {SORT_OPTIONS.map((option) => (

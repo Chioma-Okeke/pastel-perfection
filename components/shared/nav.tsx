@@ -22,7 +22,6 @@ const NavBar = () => {
                 '': (pathname !== "/product-catalog" && pathname !== "/contact-us" && pathname !== "/about-us")
             })}>
                 <div className="flex items-center justify-between gap-6 max-lg:px-4">
-                    {pathname === '/product-catalog' && width && width < 1024 && <CartModal />}
                     <div className="flex items-center lg:gap-32 max-lg:flex-1 w-full  justify-between">
                         <Logo />
                         <nav className="hidden lg:block">
@@ -51,7 +50,8 @@ const NavBar = () => {
                         </Link>
                     )
                     }
-                    <div className="text-white lg:hidden">
+                    <div className="text-white lg:hidden flex items-center gap-3">
+                        {pathname === '/product-catalog' && width && width < 1024 && <CartModal />}
                         <MobileSideBarNav />
                     </div>
                 </div>

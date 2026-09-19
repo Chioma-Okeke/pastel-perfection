@@ -12,7 +12,7 @@ const FilterSection = ({ title, options, activeValue, onSelect, defaultExpanded 
                 onClick={() => setExpanded((value) => !value)}
                 className={cn(
                     "flex w-full items-center justify-between px-4 py-3 text-sm font-semibold tracking-widest uppercase transition-colors",
-                    expanded ? "bg-primary text-primary-foreground" : "bg-transparent text-foreground"
+                    expanded ? "bg-accent text-primary-foreground" : "bg-transparent text-foreground"
                 )}
             >
                 {title}

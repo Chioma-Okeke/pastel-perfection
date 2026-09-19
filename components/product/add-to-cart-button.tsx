@@ -35,7 +35,7 @@ const AddToCartButton = ({ product, className, buttonClassName, variant = "defau
                 disabled={justAdded}
                 className={cn(
                     "overflow-hidden transition-colors",
-                    justAdded && "bg-primary border-primary text-primary-foreground disabled:opacity-100",
+                    justAdded && "bg-accent border-primary text-primary-foreground disabled:opacity-100",
                     buttonClassName
                 )}
             >

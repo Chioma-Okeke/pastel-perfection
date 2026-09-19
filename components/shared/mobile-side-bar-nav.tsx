@@ -58,7 +58,7 @@ function MobileSideBarNav() {
                 ref={triggerRef}
                 aria-label="Open menu"
                 onClick={() => setOpen(true)}
-                className="rounded-md border-none ring-0 outline-none focus:outline-none focus:ring-0 focus:border-none"
+                className="flex flex-col items-center rounded-md border-none ring-0 outline-none focus:outline-none focus:ring-0 focus:border-none"
             >
                 <MenuIcon className="size-6" color='black' />
             </button>
