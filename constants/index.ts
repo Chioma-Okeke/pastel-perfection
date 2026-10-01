@@ -1,4 +1,4 @@
-import { FacebookIcon, InstagramIcon, TikTokIcon } from "@/icons";
+import { InstagramIcon, TikTokIcon } from "@/icons";
 import { IContactItems } from "@/types";
 
 export const WHATSAPP_NUMBER = "+2348035080782";

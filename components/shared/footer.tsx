@@ -44,9 +44,6 @@ const Footer = () => {
                                         <a href={CONTACT_DATA.TIKTOK} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
                                             <TikTokIcon />
                                         </a>
-                                        <a href={CONTACT_DATA.FACEBOOK} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
-                                            <FacebookIcon />
-                                        </a>
                                         <a href={BULK_ORDER_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
                                             <WhatsAppIcon />
                                         </a>
