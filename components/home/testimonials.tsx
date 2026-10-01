@@ -8,11 +8,11 @@ import PaddingContainer from "../shared/padding-container";
 import MaxContainer from "../shared/max-container";
 import { AnimatedSection } from "../shared/animated-section";
 import { testimonialsData } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 const Testimonials = () => {
     const swiperRef = useRef<SwiperClass | null>(null);
     const [activeIndex, setActiveIndex] = useState(0);
-    const [progress, setProgress] = useState(0);
     const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
     const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
 
@@ -39,7 +39,6 @@ const Testimonials = () => {
                                 swiperRef.current = swiper;
                             }}
                             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-                            onAutoplayTimeLeft={(_, __, percentage) => setProgress(1 - percentage)}
                             className="mt-6 w-full"
                         >
                             {testimonialsData.map((testimonial, index) => (
@@ -68,13 +67,9 @@ const Testimonials = () => {
                                 {testimonialsData.map((_, index) => (
                                     <span key={index} className="relative h-1 w-10 rounded-full bg-muted overflow-hidden">
                                         <span
-                                            className="absolute inset-y-0 left-0 rounded-full bg-accent"
-                                            style={{
-                                                width: index < activeIndex ? "100%" : index === activeIndex ? `${progress * 100}%` : "0%",
-                                                transitionProperty: "width",
-                                                transitionDuration: index === activeIndex ? "100ms" : "300ms",
-                                                transitionTimingFunction: "linear",
-                                            }}
+                                            className={cn("absolute w-0 inset-y-0 left-0 rounded-full bg-accent transition-all duration-500", {
+                                                "w-full ": index === activeIndex
+                                            })}
                                         />
                                     </span>
                                 ))}
