@@ -2,12 +2,27 @@ import { cn } from "@/lib/utils"
 import { Facet } from "@/types"
 import { Check, Minus, Plus } from "lucide-react"
 import { useState } from "react"
+import { Input } from "../ui/input"
 
-const FilterSection = ({ title, options, activeValue, onSelect, defaultExpanded = true }: Omit<Facet, "key">) => {
+const FilterSection = ({ title, options, activeValue, onSelect, searchTerm, setSearchTerm, defaultExpanded = true }: Omit<Facet, "key">) => {
     const [expanded, setExpanded] = useState(defaultExpanded)
 
     return (
         <div className="border-b border-border">
+            {title === "Product Type" && (
+                <div className="mb-6 flex items-center rounded-lg border px-4 py-3 transition-shadow duration-300 focus-within:border-ring focus-within:shadow-[0_0_0_4px_color-mix(in_oklch,var(--ring)_18%,transparent)]">
+                    <Input
+                        placeholder="Search Product List"
+                        aria-label="Product list search box"
+                        className="flex-1 border-0 focus-visible:ring-0 p-0"
+                        value={searchTerm ?? ""}
+                        onChange={(e) => {
+                            if (setSearchTerm) {
+                                setSearchTerm(e.target.value)
+                            }
+                        }}
+                    />
+                </div>)}
             <button
                 onClick={() => setExpanded((value) => !value)}
                 className={cn(
@@ -61,6 +76,8 @@ export const FilterSidebar = ({ facets }: { facets: Facet[] }) => (
                 options={facet.options}
                 activeValue={facet.activeValue}
                 onSelect={facet.onSelect}
+                setSearchTerm={facet.setSearchTerm}
+                searchTerm={facet.searchTerm}
                 defaultExpanded={facet.defaultExpanded}
             />
         ))}

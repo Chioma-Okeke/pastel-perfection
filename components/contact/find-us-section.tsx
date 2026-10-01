@@ -23,11 +23,11 @@ const FindUsSection = () => {
                                 <AnimatedSection key={item.label} className="py-6">
                                     <p className="text-accent text-xs font-semibold tracking-[0.2em] uppercase">{item.label}</p>
                                     {item.href ? (
-                                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="mt-2 block font-semibold text-lg text-foreground hover:text-accent transition-colors">
+                                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="mt-2 block font-medium text-lg text-foreground hover:text-accent transition-colors">
                                             {item.value}
                                         </a>
                                     ) : (
-                                        <p className="mt-2 font-semibold text-lg text-foreground">{item.value}</p>
+                                        <p className="mt-2 font-medium text-lg text-foreground">{item.value}</p>
                                     )}
                                     {item.note && <p className="mt-1 text-sm text-muted-foreground">{item.note}</p>}
                                 </AnimatedSection>
@@ -41,7 +41,7 @@ const FindUsSection = () => {
                             >
                                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center px-6">
                                     <MapPin className="size-10 text-accent" fill="currentColor" />
-                                    <p className="font-heading text-2xl text-foreground">{CONTACT_DATA.WAREHOUSE_CITY}</p>
+                                    <p className="font-heading text-2xl text-foreground">Lagos, {CONTACT_DATA.WAREHOUSE_CITY}</p>
                                     <Button
                                         render={<a href={GOOGLE_MAPS_LINK} target="_blank" rel="noopener noreferrer" />}
                                         className="h-auto rounded-full px-6 py-3"

@@ -30,8 +30,8 @@ const NavBar = () => {
                                         <Link
                                             href={item.link}
                                             key={item.label}
-                                            className={cn("pb-1.5 border-b-2 border-b-transparent font-semibold transition-colors hover:border-b-primary ease-in-out duration-300", {
-                                                'border-b-primary': pathname === item.link
+                                            className={cn("pb-1.5 border-b-3 border-b-transparent font-medium transition-colors hover:border-b-accent ease-in-out duration-300", {
+                                                'border-b-accent': pathname === item.link
                                             })}
                                         >
                                             {item.label.toUpperCase()}
@@ -41,16 +41,11 @@ const NavBar = () => {
                             </ul>
                         </nav>
                     </div>
-                    {pathname === "/product-catalog" && width && width >= 1024 ? (
+                    {width && width >= 1024 && (
                         <CartModal />
-                    ) : (
-                        <Link href="/product-catalog">
-                            <Search01 className="hidden lg:block size-5.5 cursor-pointer" />
-                        </Link>
-                    )
-                    }
+                    )}
                     <div className="text-white lg:hidden flex items-center gap-3">
-                        {pathname === '/product-catalog' && width && width < 1024 && <CartModal />}
+                        {width && width < 1024 && <CartModal />}
                         <MobileSideBarNav />
                     </div>
                 </div>

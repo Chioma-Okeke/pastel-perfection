@@ -15,23 +15,19 @@ export const HEADER_URLS = [
 ];
 
 export const CONTACT_DATA = {
-    EMAIL: "pastelperfection@example.com",
+    EMAIL: "pastelperfection.ng@gmail.com",
     PHONE_NUMBER: `${WHATSAPP_NUMBER}`,
-    ADDRESS: [
-        "Pastel Perfection Plaza Abia gate, Trade fair complex, Lagos, Nigeria",
-        "A5/44 Kano plaza, Trade fair Complex, Lagos, Nigeria",
-        "D20/29 Abia plaza, Trade fair complex, Lagos, Nigeria",
-    ],
+    ADDRESS: "D34, Enugu Plaza, Trade Fair Complex, Lagos",
     INSTAGRAM:
-        "https://www.instagram.com/veetgoldofficialpage?igsh=MWo0eHJqZGQyamlmMQ==",
-    FACEBOOK: "https://facebook.com/veetgold",
-    TIKTOK: "https://www.tiktok.com/@veetgold",
+        "https://www.instagram.com/pastel.perfection_ng?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==",
+    // FACEBOOK: "https://facebook.com/veetgold",
+    TIKTOK: "https://www.tiktok.com/@pastel_perfection8?",
     HOURS: "Mon – Sat, 9am – 6pm",
-    WAREHOUSE_CITY: "Lagos, Nigeria",
+    WAREHOUSE_CITY: "Nigeria",
     WAREHOUSE_NOTE: "Wholesale visits by appointment only",
 };
 
-export const GOOGLE_MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_DATA.ADDRESS[0])}`;
+export const GOOGLE_MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_DATA.ADDRESS)}`;
 
 export const CONTACT_ITEMS: IContactItems[] = [
     {
@@ -45,8 +41,8 @@ export const CONTACT_ITEMS: IContactItems[] = [
         href: `mailto:${CONTACT_DATA.EMAIL}`,
     },
     {
-        label: "Warehouse",
-        value: CONTACT_DATA.WAREHOUSE_CITY,
+        label: "Location",
+        value: `${CONTACT_DATA.ADDRESS} ${CONTACT_DATA.WAREHOUSE_CITY}`,
     },
     {
         label: "Hours",
@@ -80,12 +76,12 @@ export const SOCIAL_LINKS = [
         href: CONTACT_DATA.TIKTOK,
         Icon: TikTokIcon,
     },
-    {
-        label: "Facebook",
-        handle: "Pastel Perfection Beauty",
-        href: CONTACT_DATA.FACEBOOK,
-        Icon: FacebookIcon,
-    },
+    // {
+    //     label: "Facebook",
+    //     handle: "Pastel Perfection Beauty",
+    //     href: CONTACT_DATA.FACEBOOK,
+    //     Icon: FacebookIcon,
+    // },
 ];
 
 export const PRODUCT_TYPE_OPTIONS = ['Pads', 'Face Cream', 'Serum', 'Body Lotion', 'Soap', 'Oil', 'Shower Gel', 'Body Scrubs']

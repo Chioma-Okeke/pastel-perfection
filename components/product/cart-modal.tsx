@@ -9,10 +9,13 @@ import { Drawer, DrawerClose, DrawerContent, DrawerTitle, DrawerTrigger } from '
 import { useCartStore } from '@/store/useCartStore'
 import { WHATSAPP_NUMBER } from '@/constants'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 function CartModal() {
     const { cart, decreaseQty, increaseQty, removeFromCart, clearCart } = useCartStore()
+    const [isOpen, setIsOpen] = useState(false)
     const itemCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0)
+    const router = useRouter()
 
     const handleSendToWhatsApp = () => {
         if (cart.length === 0) return;
@@ -24,14 +27,18 @@ function CartModal() {
         window.open(url, isMobile ? "_self" : "_blank");
         clearCart();
     }
-    const [isOpen, setIsOpen] = useState(false)
+
+    const closeModal = () => {
+        setIsOpen(false)
+        router.push("/product-catalog")
+    }
 
     return (
         <Drawer open={isOpen} onOpenChange={(open) => setIsOpen(open)} swipeDirection='right'>
             <DrawerTrigger className='relative cursor-pointer'>
                 <ShoppingBasket size={24} className='hover:scale-110 transition-all ease-in-out duration-300 max-lg:text-primary' />
                 {itemCount > 0 && (
-                    <Badge className='absolute -top-2 -right-2 size-4 min-w-4 justify-center rounded-full px-0 text-[10px]'>
+                    <Badge className='bg-accent absolute -top-2 -right-2 size-4 min-w-4 justify-center rounded-full px-0 text-[10px]'>
                         {itemCount}
                     </Badge>
                 )}
@@ -53,7 +60,7 @@ function CartModal() {
                             <h3 className='font-heading text-lg font-semibold text-foreground'>Your cart is empty</h3>
                             <p className='mt-1 text-sm text-muted-foreground'>Browse the catalog and add products you&apos;d like to order.</p>
                         </div>
-                        <Button onClick={() => setIsOpen(false)} className='h-auto rounded-full px-6 py-3 bg-accent'>
+                        <Button onClick={closeModal} className='h-auto rounded-full px-6 py-3 bg-accent'>
                             Browse Products
                         </Button>
                     </div>

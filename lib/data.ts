@@ -200,32 +200,32 @@ export const productsData: IProduct[] = [
 
 export const brandsData = [
     {
-        name: "Dr Rashel",
+        name: "Pastel Perfection",
         imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
     },
     {
         name: "Medicube",
-        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1790813329/Minimal_Medicube_Logo_on_White_exgoz4.png",
     },
     {
         name: "Estelin",
-        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1790812921/Estelin_tnapfi.jpg",
     },
     {
-        name: "AichuBeauty",
-        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
+        name: "Cosrx",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1790813367/COSRX_Minimalist_Wordmark_nygypj.png",
     },
     {
-        name: "Nary",
-        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
+        name: "Aichun Beauty",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1790813026/Aichun_Beauty_Oval_Logo_bwpaft.png",
     },
     {
-        name: "Dr Davey",
-        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
+        name: "Axis-Y",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1790813781/Axis-y_ssrgbi.jpg",
     },
     {
         name: "Dr Meinaier",
-        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png",
+        imgUrl: "https://res.cloudinary.com/djrp3aaq9/image/upload/v1790813286/Minimalist_DR_MEINAIER_Wordmark_xt3yve.png",
     },
 ];
 

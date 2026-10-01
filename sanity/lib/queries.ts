@@ -1,4 +1,4 @@
-import { defineQuery } from 'next-sanity'
+import { defineQuery } from "next-sanity";
 
 const PRODUCT_PROJECTION = `{
   _id,
@@ -17,15 +17,15 @@ const PRODUCT_PROJECTION = `{
   featured,
   newArrival,
   bestSelling,
-}`
+}`;
 
 export const PRODUCTS_QUERY = defineQuery(`
   *[_type == "product"] | order(name asc) ${PRODUCT_PROJECTION}
-`)
+`);
 
 export const BEST_SELLING_PRODUCTS_QUERY = defineQuery(`
   *[_type == "product" && bestSelling == true] | order(name asc) ${PRODUCT_PROJECTION}
-`)
+`);
 
 export const PRODUCT_CATEGORIES_QUERY = defineQuery(`
   *[_type == "productCategory"] | order(title asc) {
@@ -33,4 +33,10 @@ export const PRODUCT_CATEGORIES_QUERY = defineQuery(`
     title,
     slug,
   }
-`)
+`);
+
+export const PRODUCT_SEARCH_QUERY = (searchTerm: string) => {
+    defineQuery(`
+  *[_type == "product" && name match ${searchTerm}] | order(name asc) ${PRODUCT_PROJECTION}  
+`);
+};

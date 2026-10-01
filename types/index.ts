@@ -61,6 +61,8 @@ export type Facet = {
     activeValue: string;
     onSelect: (value: string) => void;
     defaultExpanded?: boolean;
+    searchTerm?: string;
+    setSearchTerm?: (value: string) => void
 };
 
 export type SortValue = (typeof SORT_OPTIONS)[number]["value"] | "";

@@ -1,7 +1,7 @@
 'use client'
 
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay, FreeMode } from "swiper/modules"
+import { Autoplay } from "swiper/modules"
 import PaddingContainer from "../shared/padding-container"
 import { brandsData } from "@/lib/data"
 import Image from "next/image"
@@ -15,19 +15,18 @@ const BrandLogos = () => {
                 <MaxContainer>
                     <AnimatedSection className="mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
                         <Swiper
-                            modules={[Autoplay, FreeMode]}
+                            modules={[Autoplay]}
                             slidesPerView="auto"
                             spaceBetween={15}
                             loop
-                            freeMode={{ enabled: true, momentum: false }}
                             speed={15000}
-                            autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }}
+                            autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: false }}
                             allowTouchMove={false}
                             className="w-full"
                         >
                             {[...brandsData, ...brandsData].map((brand, index) => (
                                 <SwiperSlide key={index} className="w-auto!">
-                                    <div className="flex h-auto w-36 items-center justify-center gap-2 opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0" title={brand.name}>
+                                    <div className="flex h-auto w-24 items-center justify-center gap-2 lg:opacity-40 lg:grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0" title={brand.name}>
                                         <div className="relative overflow-hidden w-full aspect-square">
                                             <Image src={brand.imgUrl} fill className="object-cover object-center" alt={brand.name} />
                                         </div>

@@ -17,10 +17,9 @@ import { MobileFilterSidebar } from "./mobile-filter-sidebar"
 const ProductCatalogSection = ({ products, categories }: ProductCatalogSectionProps) => {
     const [activeBrand, setActiveBrand] = useState<string>("All")
     const [activeType, setActiveType] = useState<string>("All")
-    const [activeIngredient, setActiveIngredient] = useState<string>("All")
-    const [activeSkinConcern, setActiveSkinConcern] = useState<string>("All")
     const [sortBy, setSortBy] = useState<SortValue>("")
     const [filtersOpen, setFiltersOpen] = useState(false)
+    const [searchTerm, setSearchTerm] = useState<string>("")
 
     const typeOptions = useMemo(() => countBy(products.map((product) => product.productType)), [products])
 
@@ -33,49 +32,42 @@ const ProductCatalogSection = ({ products, categories }: ProductCatalogSectionPr
         [products, categories]
     )
 
-    const ingredientOptions = useMemo(() => countBy(products.flatMap((product) => product.ingredients)), [products])
-
-    const skinConcernOptions = useMemo(() => countBy(products.flatMap((product) => product.skinConcern)), [products])
-
     const filteredProducts = useMemo(() => {
         return products.filter((product) => {
+            const matchesSearchedItem =
+                searchTerm === "" ||
+                product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                product.category.some((category) => category.title.toLowerCase().includes(searchTerm.toLowerCase()))
             const matchesBrand = activeBrand === "All" || product.category.some((category) => category.title === activeBrand)
             const matchesType = activeType === "All" || product.productType === activeType
-            const matchesIngredient = activeIngredient === "All" || product.ingredients.includes(activeIngredient)
-            const matchesSkinConcern = activeSkinConcern === "All" || product.skinConcern.includes(activeSkinConcern)
-            return matchesBrand && matchesType && matchesIngredient && matchesSkinConcern
+            return matchesBrand && matchesType && matchesSearchedItem
         })
-    }, [products, activeBrand, activeType, activeIngredient, activeSkinConcern])
+    }, [products, activeBrand, activeType, searchTerm])
 
     const sortedProducts = useMemo(() => {
         return [...filteredProducts].sort((a, b) => (sortBy === "name-desc" ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)))
     }, [filteredProducts, sortBy])
 
-    const activeFilterCount = [activeBrand, activeType, activeIngredient, activeSkinConcern].filter((value) => value !== "All").length
+    const activeFilterCount = [activeBrand, activeType].filter((value) => value !== "All").length
 
     const breadcrumbLabel =
         activeType !== "All"
             ? activeType
-            : activeIngredient !== "All"
-                ? activeIngredient
-                : activeSkinConcern !== "All"
-                    ? activeSkinConcern
-                    : activeBrand !== "All"
-                        ? activeBrand
-                        : "All Products"
+            : searchTerm !== ""
+                ? searchTerm
+                : activeBrand !== "All"
+                    ? activeBrand
+                    : "All Products"
 
     const facets: Facet[] = [
-        { key: "type", title: "Product Type", options: typeOptions, activeValue: activeType, onSelect: setActiveType, defaultExpanded: true },
+        { key: "type", title: "Product Type", options: typeOptions, activeValue: activeType, onSelect: setActiveType, defaultExpanded: true, searchTerm: searchTerm, setSearchTerm: setSearchTerm },
         { key: "collection", title: "Collection", options: brandOptions, activeValue: activeBrand, onSelect: setActiveBrand, defaultExpanded: false },
-        { key: "ingredients", title: "Ingredients", options: ingredientOptions, activeValue: activeIngredient, onSelect: setActiveIngredient, defaultExpanded: false },
-        { key: "skin-concern", title: "Skin Concern", options: skinConcernOptions, activeValue: activeSkinConcern, onSelect: setActiveSkinConcern, defaultExpanded: false },
     ]
 
     const resetFilters = () => {
         setActiveBrand("All")
         setActiveType("All")
-        setActiveIngredient("All")
-        setActiveSkinConcern("All")
+        setSearchTerm("")
     }
 
     useEffect(() => {
@@ -95,7 +87,6 @@ const ProductCatalogSection = ({ products, categories }: ProductCatalogSectionPr
         if (filtersOpen) window.addEventListener("keydown", onKey)
         return () => window.removeEventListener("keydown", onKey)
     }, [filtersOpen])
-    console.log(sortedProducts, "seorted Products")
 
     return (
         <section className="py-10 bg-white">
@@ -164,8 +155,8 @@ const ProductCatalogSection = ({ products, categories }: ProductCatalogSectionPr
                     </div>
                 </MaxContainer>
             </PaddingContainer>
-            
-            <MobileFilterSidebar filtersOpen={filtersOpen} facets={facets} resetFilters={resetFilters} setFiltersOpen={setFiltersOpen}/>
+
+            <MobileFilterSidebar filtersOpen={filtersOpen} facets={facets} resetFilters={resetFilters} setFiltersOpen={setFiltersOpen} />
         </section>
     )
 }
