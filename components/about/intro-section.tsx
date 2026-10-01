@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import PaddingContainer from "../shared/padding-container"
 import MaxContainer from "../shared/max-container"
 import { AnimatedSection } from "../shared/animated-section"
+import Image from "next/image"
 
 const IntroSection = () => {
     return (
@@ -22,13 +23,14 @@ const IntroSection = () => {
                             </div>
                         </AnimatedSection>
 
-                        <AnimatedSection>
-                            <motion.div
-                                whileHover={{ scale: 1.02, transition: { duration: 0.25, ease: "easeOut" } }}
-                                className="flex aspect-square w-full items-center justify-center bg-accent/8 px-6 text-center"
-                            >
-                                <p className="font-heading italic text-lg text-accent/70">Founder photo</p>
-                            </motion.div>
+                        <AnimatedSection className="relative aspect-4/5 w-full overflow-hidden rounded-[32px] lg:aspect-auto lg:h-125">
+                            <Image
+                                src="https://res.cloudinary.com/djrp3aaq9/image/upload/v1789790695/IMG_0193_eh67if.jpg"
+                                alt="Product image"
+                                fill
+                                sizes="(min-width: 1024px) 50vw, 100vw"
+                                className="object-cover object-center"
+                            />
                         </AnimatedSection>
                     </div>
                 </MaxContainer>
