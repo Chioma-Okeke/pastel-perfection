@@ -25,7 +25,7 @@ function HeroSection() {
     }
 
     return (
-        <section className="relative h-fit pb-24 lg:pb-12">
+        <section className="relative h-[80%] pb-24 lg:pb-12 max-md:flex max-md:flex-col max-md:justify-end max-md:min-h-svh max-md:pb-14">
             {/* Background Swiper */}
             <div>
                 <Swiper
@@ -74,22 +74,22 @@ function HeroSection() {
                     stiffness: 120,
                     damping: 12
                 }}
-                className="relative z-20 w-full lg:pb-12 md:pl-18 pt-29.25 md:pt-44 max-w-189 max-sm:mx-auto text-white">
-                <div className="mt-11 md:mx-5 lg:ml-21.75 space-y-11 rounded-xl max-w-85.75 mx-auto md:max-w-167.5 md:w-full max-sm:px-2 Mm-hmm. Somewhere on this road.">
+                className="relative z-20 w-full max-md:px-5 lg:pb-12 md:pl-18 md:pt-44 max-w-189 text-white">
+                <div className="md:mt-11 md:mx-5 lg:ml-21.75 space-y-6 md:space-y-11 rounded-xl max-w-md md:max-w-167.5 md:w-full">
                     <div>
-                        <h1 className="font-bold text-white text-[45px] md:text-[56px] lg:leading-19.5 mt-4 mb-2">
+                        <h1 className="font-bold text-white text-[34px] leading-tight mb-3 md:text-[56px] md:leading-normal lg:leading-19.5 md:mt-4 md:mb-2">
                             Stock the brands your customers already love.
                         </h1>
-                        <p className="text-sm md:text-lg hidden md:block">
-                            Authentic bulk supply of Medicube, Dr. Rashel and more - trusted by retailers and resellers across Nigeria.
+                        <p className="text-sm max-md:text-white/90 md:text-lg">
+                            Authentic bulk supply of Axis-Y, Cosrx and more - trusted by retailers and resellers across Nigeria.
                         </p>
                     </div>
                     {/* <CustomButton /> */}
-                    <div className="flex gap-10 max-md:flex-col">
-                        <Button className="h-auto py-4 px-7 rounded-full border-primary" onClick={sendToCatalog}>
+                    <div className="flex gap-3 lg:gap-10 max-md:flex-col max-md:items-start">
+                        <Button className="max-sm:text-sm h-auto py-4 px-7 rounded-full border-primary max-sm:w-full" onClick={sendToCatalog}>
                             View Products
                         </Button>
-                        <Button className="h-auto py-4 px-7 rounded-full border-primary text-foreground" variant="outline">
+                        <Button className="max-sm:text-sm h-auto py-4 px-7 rounded-full border-primary text-foreground max-sm:w-full" variant="outline">
                             Chat on WhatsApp
                         </Button>
                     </div>
@@ -104,7 +104,7 @@ function HeroSection() {
                             key={index}
                             onClick={() => swiperRef.current?.slideToLoop(index)}
                             variant={currentIndex === index ? "outline" : "default"}
-                            className="size-2.5 rounded-full p-1"
+                            className="size-3.5 rounded-full p-1"
                         />
                     ))}
                 </div>

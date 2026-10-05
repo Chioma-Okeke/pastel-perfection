@@ -11,7 +11,7 @@ import { WHATSAPP_NUMBER } from '@/constants'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-function CartModal() {
+function CartModal({ iconColor }: { iconColor?: string }) {
     const { cart, decreaseQty, increaseQty, removeFromCart, clearCart } = useCartStore()
     const [isOpen, setIsOpen] = useState(false)
     const itemCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0)
@@ -36,7 +36,7 @@ function CartModal() {
     return (
         <Drawer open={isOpen} onOpenChange={(open) => setIsOpen(open)} swipeDirection='right'>
             <DrawerTrigger className='relative cursor-pointer'>
-                <ShoppingBasket size={24} className='hover:scale-110 transition-all ease-in-out duration-300 max-lg:text-primary' />
+                <ShoppingBasket size={24} className='hover:scale-110 transition-all ease-in-out duration-300 max-lg:text-primary' color={iconColor ?? "black"} />
                 {itemCount > 0 && (
                     <Badge className='bg-accent absolute -top-2 -right-2 size-4 min-w-4 justify-center rounded-full px-0 text-[10px]'>
                         {itemCount}

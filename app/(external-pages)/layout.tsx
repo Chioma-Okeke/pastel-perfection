@@ -1,7 +1,7 @@
 import BackToTop from "@/components/shared/back-to-top"
+import CartModalFloat from "@/components/shared/cart-modal-float"
 import Footer from "@/components/shared/footer"
 import NavBar from "@/components/shared/nav"
-import WhatsAppFloat from "@/components/shared/whatsapp-float"
 import React from "react"
 
 const ExternalPagesLayout = ({ children }: { children: React.ReactNode }) => {
@@ -11,7 +11,7 @@ const ExternalPagesLayout = ({ children }: { children: React.ReactNode }) => {
             <main>{children}</main>
             <Footer />
             <BackToTop />
-            <WhatsAppFloat />
+            <CartModalFloat />
         </div>
     )
 }

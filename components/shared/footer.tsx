@@ -2,7 +2,7 @@ import Link from "next/link"
 import PaddingContainer from "./padding-container"
 import MaxContainer from "./max-container"
 import { BULK_ORDER_LINK, CONTACT_DATA, EXPLORE_LINKS } from "@/constants"
-import { FacebookIcon, InstagramIcon, TikTokIcon, WhatsAppIcon } from "@/icons"
+import { InstagramIcon, TikTokIcon, WhatsAppIcon } from "@/icons"
 import { Logo } from "./logo"
 
 const Footer = () => {
