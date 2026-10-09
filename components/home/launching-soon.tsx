@@ -19,10 +19,6 @@ const LaunchingSoon = () => {
                 <MaxContainer className="py-16 lg:py-28">
                     <div className="flex max-lg:flex-col items-center gap-12 lg:gap-20">
                         <AnimatedSection className="flex-1 space-y-6 max-lg:text-center">
-                            <p className="flex items-center gap-2 max-lg:justify-center text-accent text-xs font-semibold tracking-[0.2em] uppercase">
-                                <Circle size={8} fill="currentColor" stroke="none" />
-                                <span>Launching Soon</span>
-                            </p>
                             <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.1] max-w-xl">
                                 Introducing Pastel Perfection body lotion & shower gel
                             </h1>

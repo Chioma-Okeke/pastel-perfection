@@ -83,15 +83,16 @@ function CartModal({ iconColor }: { iconColor?: string }) {
                                             <div className='relative flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-md bg-accent/8'>
                                                 <Image src={imageUrl ? imageUrl : "https://res.cloudinary.com/djrp3aaq9/image/upload/v1783890254/Logo_j3qivj.png"} alt={item.images?.[0]?.alt || item.name} fill sizes='64px' className='object-cover' />
                                             </div>
-                                            <div className='min-w-0 flex-1'>
+                                            <div className='min-w-0 flex-1 space-y-1'>
                                                 <p className='truncate font-medium text-foreground'>{item.name}</p>
-                                                <button
+                                                <Button
                                                     onClick={() => removeFromCart(item._id)}
-                                                    className='mt-1 flex items-center bg-red-600 text-white gap-1 text-xs py-1 px-2 rounded-3xl transition-colors hover:text-destructive'
+                                                    variant="destructive"
+                                                    className='mt-1 text-xs py-1 px-2 rounded-3xl'
                                                 >
                                                     <Trash2 className='size-3' />
                                                     Remove
-                                                </button>
+                                                </Button>
                                             </div>
                                             <div className='flex shrink-0 items-center gap-1 rounded-full border border-border p-1'>
                                                 <button
